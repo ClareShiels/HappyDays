@@ -1,5 +1,6 @@
 ﻿using Microsoft.Owin;
 using Owin;
+ 
 
 [assembly: OwinStartupAttribute(typeof(HappyDaysOne.Startup))]
 namespace HappyDaysOne
@@ -10,5 +11,7 @@ namespace HappyDaysOne
         {
             ConfigureAuth(app);
         }
+
+       
     }
 }

@@ -1,0 +1,75 @@
+﻿@model IEnumerable<HappyDaysOne.Models.Child>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GuardianFirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GuardianLastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GuardianPhNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GuardianEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChildLastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChildFirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DOB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SpecialNeeds)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.GuardianFirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GuardianLastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GuardianPhNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GuardianEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChildLastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChildFirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DOB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SpecialNeeds)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

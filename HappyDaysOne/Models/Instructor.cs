@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace HappyDaysOne.Models
+{
+    public class Instructor
+    {
+        public int ID { get; set; }
+        public string InstructorFirstName { get; set; }
+        public string InstructorLastName { get; set; }
+        public string InstructorEmail { get; set; }
+        public string InstructorPhNo { get; set; }
+
+        //foreign key to Activity  entity
+        //[ForeignKey("Activity")]
+        //public int ActivityID { get; set; }
+
+        //navigation property implementing a m:m relationship between instructor and activity
+        public virtual ICollection<Activity> Activities { get; set; }
+
+    }
+}

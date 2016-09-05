@@ -6,6 +6,10 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using HappyDaysOne.DAL;
+using HappyDaysOne.Controllers;
+using HappyDaysOne.Models;
+
 
 namespace HappyDaysOne
 {

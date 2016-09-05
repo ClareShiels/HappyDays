@@ -1,0 +1,75 @@
+TITLE: Error
+------------------------------
+
+Cannot open database "HappyDaysContext" requested by the login. The login failed.
+Login failed for user 'DESKTOP-UL53U2O\Clare Shiels'. (Microsoft SQL Server, Error: 4060)
+
+For help, click: http://go.microsoft.com/fwlink?ProdName=Microsoft%20SQL%20Server&EvtSrc=MSSQLServer&EvtID=4060&LinkId=20476
+
+------------------------------
+BUTTONS:
+
+OK
+------------------------------
+
+
+Data Source=(localdb)\ProjectsV13;Initial Catalog=master;Integrated Security=True;Connect 
+Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False
+
+
+
+
+C:\Users\Clare Shiels\AppData\Local\Microsoft\Microsoft SQL Server Local DB\Instances\MSSQLLocalDB
+
+connection string for Happy Days One
+
+Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=aspnet-HappyDaysOne;Integrated Security=True;
+Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False
+
+data filename for Happy Days One
+
+c:\users\clare shiels\documents\visual studio 2015\Projects\HappyDaysOne\HappyDaysOne\App_Data\aspnet-HappyDaysOne.mdf
+
+
+database for Happy Days One
+
+aspnet-HappyDaysOne
+
+aedins connection string for hdip
+
+<connectionStrings>
+    <add name="DefaultConnection" connectionString="Data Source=(LocalDb)\MSSQLLocalDB;
+	AttachDbFilename=|DataDirectory|\CareTrackerV1TABLES.mdf;Initial Catalog=CareTrackerV1TABLES;Integrated Security=True"
+	 providerName="System.Data.SqlClient" />
+  </connectionStrings>
+
+
+<entityFramework>
+    <contexts>
+      <context type="CareTrackerV1.Models.ApplicationDbContext, CareTrackerV1">
+        <databaseInitializer type="CareTrackerV1.DAL.CareTrackerV1Initializer, CareTrackerV1" />
+      </context>
+    </contexts>
+    <defaultConnectionFactory type="System.Data.Entity.Infrastructure.LocalDbConnectionFactory, EntityFramework">
+      <parameters>
+        <parameter value="mssqllocaldb" />
+      </parameters>
+    </defaultConnectionFactory>
+    <providers>
+      <provider invariantName="System.Data.SqlClient" type="System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer" />
+    </providers>
+  </entityFramework>
+
+
+
+
+
+CLARE'S WORKING CONNECTION STRING
+
+<add name="DefaultConnection" connectionString="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\HappyDaysTrialDb.mdf;Initial Catalog=HappyDaysTrialDb;Integrated Security=True"
+      providerName="System.Data.SqlClient" />
+
+
+
+
+

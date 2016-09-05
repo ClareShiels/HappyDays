@@ -5,10 +5,10 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace HappyDaysOne.DAL
 {
-    public class HappyDaysContext : DbContext
+    public class ApplicationDbContext : DbContext
     {
         //name of connection string being passed into the db context class constructor
-        public HappyDaysContext() : base("HappyDaysContext")
+        public ApplicationDbContext() : base("ApplicationDbContext")
         {
         }
         //each dbset property correlates to a table, or entity set in the db, each entity is a row in the entity set/table 

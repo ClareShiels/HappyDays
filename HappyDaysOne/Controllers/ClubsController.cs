@@ -14,7 +14,7 @@ namespace HappyDaysOne.Controllers
 {
     public class ClubsController : Controller
     {
-        private HappyDaysContext db = new HappyDaysContext();
+        private HappyDaysOne.DAL.ApplicationDbContext db = new HappyDaysOne.DAL.ApplicationDbContext();
 
         // GET: Clubs
         public async Task<ActionResult> Index()

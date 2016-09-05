@@ -14,6 +14,7 @@ namespace HappyDaysOne.Models
         //pk and fk is the enrolment id as payment is dependent on enrolment
         [Key]
         [ForeignKey("Enrolment")]
+
         public int EnrolmentID { get; set; }       
         public int ID { get; set; }
         public double AmountReceived { get; set; }

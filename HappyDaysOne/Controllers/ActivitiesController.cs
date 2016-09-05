@@ -15,7 +15,7 @@ namespace HappyDaysOne.Controllers
 {
     public class ActivitiesController : Controller
     {
-        private HappyDaysOne.DAL.ApplicationDbContext db = new HappyDaysOne.DAL.ApplicationDbContext();
+        private HappyDaysOne.Models.ApplicationDbContext db = new HappyDaysOne.Models.ApplicationDbContext();
 
         // GET: Activities
         public async Task<ActionResult> Index()

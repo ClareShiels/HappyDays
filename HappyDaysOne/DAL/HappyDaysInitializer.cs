@@ -5,9 +5,10 @@ using System.Web;
 using System.Data.Entity;
 using HappyDaysOne.Models;
 
+
 namespace HappyDaysOne.DAL
 {
-    public class HappyDaysInitializer : System.Data.Entity.DropCreateDatabaseAlways<ApplicationDbContext>
+    public class HappyDaysInitializer : DropCreateDatabaseAlways<ApplicationDbContext>
     {
         protected override void Seed(ApplicationDbContext context)
         {
@@ -17,7 +18,7 @@ namespace HappyDaysOne.DAL
             {
                 new Child { ChildFirstName = "Cora", ChildLastName = "Shiels", GuardianEmail = "clareshiels@gmail.com",
                     GuardianFirstName = "Clare", GuardianLastName = "Shiels", GuardianPhNo = "0871234567",
-                    DOB = DateTime.Parse("27-06-2009"), SpecialNeeds = SpecialNeeds.no },
+                    DOB = DateTime.Parse("03-06-2009"), SpecialNeeds = SpecialNeeds.no },
                 new Child { ChildFirstName = "Noah", ChildLastName = "Shiels", GuardianEmail = "clareshiels@gmail.com",
                     GuardianFirstName = "Clare", GuardianLastName = "Shiels", GuardianPhNo = "0871234567",
                     DOB = DateTime.Parse("06-12-2007"), SpecialNeeds = SpecialNeeds.no },
@@ -46,10 +47,10 @@ namespace HappyDaysOne.DAL
 
             var activities = new List<Activity>
             {
-                new Activity { ActivityCourseStartDate = DateTime.Parse("12-06-2017"), ActivityCourseEndDate = DateTime.Parse("13-07-2016"),
+                new Activity { ActivityCourseStartDate = DateTime.Parse("12-06-2017"), ActivityCourseEndDate = DateTime.Parse("11-07-2016"),
                     ActivityType = ActivityType.Course, AgeGroup = AgeGroup.UnderSix, Day = DayOfWeek.Monday, NameOfActivity = "Basketball", ClassTime = DateTime.Parse("14:30")
                 },
-                new Activity { ActivityCourseStartDate = DateTime.Parse("13-06-2017"), ActivityCourseEndDate = DateTime.Parse("14-07-2016"),
+                new Activity { ActivityCourseStartDate = DateTime.Parse("01-06-2017"), ActivityCourseEndDate = DateTime.Parse("10-07-2016"),
                     ActivityType = ActivityType.Course, AgeGroup = AgeGroup.NineToTwelve, Day = DayOfWeek.Tuesday, NameOfActivity = "GAA Football", ClassTime = DateTime.Parse("15:00") }
             };
 
@@ -86,9 +87,9 @@ namespace HappyDaysOne.DAL
 
             var payments = new List<Payment>
             {
-                new Payment {EnrolmentID = 1, DateReceived = DateTime.Parse("15-03-2016"), AmountDue = 80.00, AmountReceived = 80.00, PayeeName = "Clarissa" }, 
-                new Payment {EnrolmentID = 2, DateReceived = DateTime.Parse("20-02-2016"), AmountDue = 120.00, AmountReceived = 120.00, PayeeName = "Jemima" },
-                new Payment {EnrolmentID = 3, DateReceived = DateTime.Parse("22-06-2016"), AmountDue = 100.00, AmountReceived = 100.00, PayeeName = "Tre" }
+                new Payment {EnrolmentID = 1, DateReceived = DateTime.Parse("05-03-2016"), AmountDue = 80.00, AmountReceived = 80.00, PayeeName = "Clarissa" }, 
+                new Payment {EnrolmentID = 2, DateReceived = DateTime.Parse("02-02-2016"), AmountDue = 120.00, AmountReceived = 120.00, PayeeName = "Jemima" },
+                new Payment {EnrolmentID = 3, DateReceived = DateTime.Parse("12-06-2016"), AmountDue = 100.00, AmountReceived = 100.00, PayeeName = "Tre" }
             };
 
             payments.ForEach(p => context.Payments.Add(p));

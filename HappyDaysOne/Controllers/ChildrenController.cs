@@ -14,7 +14,7 @@ namespace HappyDaysOne.Controllers
 {
     public class ChildrenController : Controller
     {
-        private HappyDaysOne.DAL.ApplicationDbContext db = new HappyDaysOne.DAL.ApplicationDbContext();
+        private HappyDaysOne.Models.ApplicationDbContext db = new HappyDaysOne.Models.ApplicationDbContext();
 
         // GET: Children
         public async Task<ActionResult> Index()

@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using HappyDaysOne.DAL;
 
 
 namespace HappyDaysOne.Models
@@ -41,8 +42,9 @@ namespace HappyDaysOne.Models
         public DbSet<Payment> Payments { get; set; }
         public DbSet<Instructor> Instructors { get; set; }
         public DbSet<Address> Addresses { get; set; }
-        //public DbSet<>
 
+
+        //possibly will need this as before in miniproject to get the db working
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

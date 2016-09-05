@@ -14,7 +14,7 @@ namespace HappyDaysOne.Controllers
 {
     public class AddressesController : Controller
     {
-        private HappyDaysOne.DAL.ApplicationDbContext db = new HappyDaysOne.DAL.ApplicationDbContext();
+        private HappyDaysOne.Models.ApplicationDbContext db = new HappyDaysOne.Models.ApplicationDbContext();
 
         // GET: Addresses
         public async Task<ActionResult> Index()

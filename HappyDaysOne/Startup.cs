@@ -19,7 +19,7 @@ namespace HappyDaysOne
             createRolesandUsers();
         }
 
-        // In this method we will create default User roles and Admin user for login   
+        // This method is used to create default User roles and Admin user for login of the app   
         private void createRolesandUsers()
         {
             ApplicationDbContext context = new ApplicationDbContext();
@@ -30,33 +30,33 @@ namespace HappyDaysOne
             //creating 1st admin role and default admin user  
             if (!roleManager.RoleExists("Admin"))
             {
-                // creating 1st admin role   
+                // creating 1st admin ROLE
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
                 role.Name = "Admin";
                 roleManager.Create(role);
 
-                //creating an admin superUser to maintain the site, validation logic for usernames and pw is found in HappyDaysOne/App_Start/IndentityConfig.cs
-                var user = new ApplicationUser();
-                user.UserName = "ClareShiels";
-                user.Email = "clare.cashin@gmail.com";
+                //creating default admin superUser to maintain the site, validation logic for usernames and pw is found in HappyDaysOne/App_Start/IndentityConfig.cs
+                var superUser = new ApplicationUser();
+                superUser.UserName = "ClareShiels";
+                superUser.Email = "clare.cashin@gmail.com";
 
-                string userPWD = "Twilight1";
+                string superUserPWD = "Twilight1";
 
-                var chkUser = UserManager.Create(user, userPWD);
+                var chkUser = UserManager.Create(superUser, superUserPWD);
 
-                //Add default User to Role Admin   
+                //Add default superUser to Role Admin   
                 if (chkUser.Succeeded)
                 {
-                    var result1 = UserManager.AddToRole(user.Id, "Admin");
+                    var result1 = UserManager.AddToRole(superUser.Id, "Admin");
 
                 }
             }
 
             //creating a clubManager role
-            if (!roleManager.RoleExists("ClubManager"))
+            if (!roleManager.RoleExists("Club Manager"))
             {
                     var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
-                    role.Name = "ClubManager";
+                    role.Name = "Club Manager";
                     roleManager.Create(role);
             }
 

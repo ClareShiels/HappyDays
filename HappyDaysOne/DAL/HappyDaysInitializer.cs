@@ -48,10 +48,10 @@ namespace HappyDaysOne.DAL
             var activities = new List<Activity>
             {
                 new Activity { ActivityCourseStartDate = DateTime.Parse("12-06-2017"), ActivityCourseEndDate = DateTime.Parse("11-07-2016"),
-                    ActivityType = ActivityType.Course, AgeGroup = AgeGroup.UnderSix, Day = DayOfWeek.Monday, NameOfActivity = "Basketball", ClassTime = DateTime.Parse("14:30")
+                    ActivityType = ActivityType.Course, AgeGroup = AgeGroup.UnderSix, Day = DayOfWeek.Monday, NameOfActivity = "Basketball", ClassTime = DateTime.Parse("14:30"), ClubID = 1
                 },
                 new Activity { ActivityCourseStartDate = DateTime.Parse("01-06-2017"), ActivityCourseEndDate = DateTime.Parse("10-07-2016"),
-                    ActivityType = ActivityType.Course, AgeGroup = AgeGroup.NineToTwelve, Day = DayOfWeek.Tuesday, NameOfActivity = "GAA Football", ClassTime = DateTime.Parse("15:00") }
+                    ActivityType = ActivityType.Course, AgeGroup = AgeGroup.NineToTwelve, Day = DayOfWeek.Tuesday, NameOfActivity = "GAA Football", ClassTime = DateTime.Parse("15:00"), ClubID = 2 }
             };
 
             activities.ForEach(a => context.Activities.Add(a));
@@ -69,8 +69,8 @@ namespace HappyDaysOne.DAL
 
             var addresses = new List<Address>
             {
-                new Address { AddressLine1 = "1 Prospect Meadows", AddressLine2 = "Stocking Lane", Area = "Rathfarnham", PostCode = "D16H7R6"},
-                new Address { AddressLine1 = "8 Watermill Grove", AddressLine2 = "Old Bawn" ,Area = "Tallaght", PostCode = "D4H6R4"}
+                new Address { AddressLine1 = "1 Prospect Meadows", AddressLine2 = "Stocking Lane", Area = "Rathfarnham", PostCode = "D16H7R6", ChildID = 1, ClubID = 2},
+                new Address { AddressLine1 = "8 Watermill Grove", AddressLine2 = "Old Bawn" ,Area = "Tallaght", PostCode = "D4H6R4", ChildID = 2, ClubID = 1}
             };
 
             addresses.ForEach(a => context.Addresses.Add(a));
@@ -88,8 +88,8 @@ namespace HappyDaysOne.DAL
             var payments = new List<Payment>
             {
                 new Payment {EnrolmentID = 1, DateReceived = DateTime.Parse("05-03-2016"), AmountDue = 80.00, AmountReceived = 80.00, PayeeName = "Clarissa" }, 
-                new Payment {EnrolmentID = 2, DateReceived = DateTime.Parse("02-02-2016"), AmountDue = 120.00, AmountReceived = 120.00, PayeeName = "Jemima" },
-                new Payment {EnrolmentID = 3, DateReceived = DateTime.Parse("12-06-2016"), AmountDue = 100.00, AmountReceived = 100.00, PayeeName = "Tre" }
+                new Payment {EnrolmentID = 3, DateReceived = DateTime.Parse("02-02-2016"), AmountDue = 120.00, AmountReceived = 120.00, PayeeName = "Jemima" },
+                new Payment {EnrolmentID = 2, DateReceived = DateTime.Parse("12-06-2016"), AmountDue = 100.00, AmountReceived = 100.00, PayeeName = "Tre" }
             };
 
             payments.ForEach(p => context.Payments.Add(p));

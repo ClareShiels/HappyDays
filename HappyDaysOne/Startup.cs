@@ -30,7 +30,7 @@ namespace HappyDaysOne
             //creating 1st admin role and default admin user  
             if (!roleManager.RoleExists("Admin"))
             {
-                // creating 1st admin ROLE
+                // creating an Admin ROLE
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
                 role.Name = "Admin";
                 roleManager.Create(role);
@@ -44,7 +44,7 @@ namespace HappyDaysOne
 
                 var chkUser = UserManager.Create(superUser, superUserPWD);
 
-                //Add default superUser to Role Admin   
+                //Add default superUser (Clare Shiels) to the Role of Admin   
                 if (chkUser.Succeeded)
                 {
                     var result1 = UserManager.AddToRole(superUser.Id, "Admin");
@@ -52,15 +52,16 @@ namespace HappyDaysOne
                 }
             }
 
-            //creating a clubManager role
+            //creating a clubManager role to be enabled to perform CRUD on activities and lecturers and R on children
             if (!roleManager.RoleExists("Club Manager"))
             {
                     var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
                     role.Name = "Club Manager";
                     roleManager.Create(role);
+
             }
 
-            // creating a Child's Guardian role    
+            // creating a Child's Guardian role to be enabled to perform CRUD on child and    
             if (!roleManager.RoleExists("Child's Guardian"))
             {
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
@@ -68,6 +69,8 @@ namespace HappyDaysOne
                 roleManager.Create(role);
 
             }
+
+            //creating Instructor role
         }
     }
 }

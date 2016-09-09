@@ -17,9 +17,13 @@ namespace HappyDaysOne.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        //creating an object for ApplicationDbContext, 
+        //ApplicationDbContext=class used for all asp.net identity functions, such as role and user creation
+        ApplicationDbContext context;
 
         public AccountController()
         {
+            context = new ApplicationDbContext();
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -75,7 +79,7 @@ namespace HappyDaysOne.Controllers
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var result = await SignInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -134,13 +138,25 @@ namespace HappyDaysOne.Controllers
             }
         }
 
-        //
+        //getting all the roles from the db using the applcationdbcontext
+        //for user registration the admin roles won't be displayed
         // GET: /Account/Register
         [AllowAnonymous]
         public ActionResult Register()
         {
+            ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
+                                           .ToList(), "Name", "Name");
             return View();
         }
+
+        //// GET: /Account/Register   
+        //[AllowAnonymous]
+        //public ActionResult Register()
+        //{
+        //    ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
+        //                                    .ToList(), "Name", "Name");
+        //    return View();
+        //}
 
         //
         // POST: /Account/Register
@@ -151,7 +167,7 @@ namespace HappyDaysOne.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -163,8 +179,11 @@ namespace HappyDaysOne.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Users");
                 }
+
+                ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
+                                          .ToList(), "Name", "Name");
                 AddErrors(result);
             }
 

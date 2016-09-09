@@ -45,9 +45,9 @@ namespace HappyDaysOne.Models
 
 
         //possibly will need this as before in miniproject to get the db working
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-        }
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    base.OnModelCreating(modelBuilder);
+        //}
     }
 }

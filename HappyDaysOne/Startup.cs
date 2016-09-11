@@ -6,6 +6,7 @@ using Owin;
 using HappyDaysOne.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Security.Claims;
  
 
 [assembly: OwinStartupAttribute(typeof(HappyDaysOne.Startup))]
@@ -36,18 +37,18 @@ namespace HappyDaysOne
                 roleManager.Create(role);
 
                 //creating default admin superUser to maintain the site, validation logic for usernames and pw is found in HappyDaysOne/App_Start/IndentityConfig.cs
-                var superUser = new ApplicationUser();
-                superUser.UserName = "ClareShiels";
-                superUser.Email = "clare.cashin@gmail.com";
+                var user = new ApplicationUser();
+                user.UserName = "ClareShiels";
+                user.Email = "clare.cashin@gmail.com";
 
-                string superUserPWD = "Twilight1";
+                string userPWD = "Twilight1";
 
-                var chkUser = UserManager.Create(superUser, superUserPWD);
+                var chkUser = UserManager.Create(user, userPWD);
 
                 //Add default superUser (Clare Shiels) to the Role of Admin   
                 if (chkUser.Succeeded)
                 {
-                    var result1 = UserManager.AddToRole(superUser.Id, "Admin");
+                    var result1 = UserManager.AddToRole(user.Id, "Admin");
 
                 }
             }

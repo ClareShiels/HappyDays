@@ -70,8 +70,19 @@ namespace HappyDaysOne.Models
 
     public class RegisterViewModel
     {
+
+        //adding this to check registering problems 11/9 21:15
         [Required]
-        [Display(Name = "UserRoles")]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+
+
+        [Required]
+        [Display(Name = "User Roles")]
         public string UserRoles { get; set; }
 
         [Required]

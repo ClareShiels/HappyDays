@@ -34,16 +34,26 @@ namespace HappyDaysOne.Models
         public string ContactEmail { get; set; }
         public string ClubName { get; set; }
 
+        //foreign key from application user
+        //[ForeignKey("UserID")]
+        [Required]
+        public string UserID { get; set; }
+
         //foreign key from address entity
         //[ForeignKey("Address")]
         //public int AddressID { get; set; }
 
         //Navigation Properties: 
+
+        //implementing a 1:1 relationship between club and application user
+        [ForeignKey("UserID")]
+        public virtual ApplicationUser User { get; set; }
         //implementing a 1:m relationship between club and address
         public virtual ICollection<Address> Addresses { get; set; }
         //implementing a 1:m relationship between activity centre and instructors
         //public virtual ICollection<Instructor> Instructors { get; set; }
         //navigation property implementing a 1:m relationship between activity centre and activities
         public virtual ICollection<Activity> Activities { get; set; }
+
     }
 }

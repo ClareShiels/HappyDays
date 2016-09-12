@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using HappyDaysOne.DAL;
 using HappyDaysOne.Models;
+using System.Security.Claims;
 
 namespace HappyDaysOne.Controllers
 {

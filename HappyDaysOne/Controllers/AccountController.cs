@@ -18,7 +18,7 @@ namespace HappyDaysOne.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
         //creating an object for ApplicationDbContext, 
-        //ApplicationDbContext=class used for all asp.net identity functions, such as role and user creation
+        //ApplicationDbContext is the class used for all asp.net identity functions, such as role and user creation
         ApplicationDbContext context;
 
         public AccountController()
@@ -149,15 +149,6 @@ namespace HappyDaysOne.Controllers
             return View();
         }
 
-        //// GET: /Account/Register   
-        //[AllowAnonymous]
-        //public ActionResult Register()
-        //{
-        //    ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
-        //                                    .ToList(), "Name", "Name");
-        //    return View();
-        //}
-
         //
         // POST: /Account/Register
         [HttpPost]
@@ -171,7 +162,18 @@ namespace HappyDaysOne.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                    var club = new Club
+                    {
+                        ContactFirstName = model.FirstName,
+                        ContactLastName = model.LastName,
+                        ContactEmail = model.Email
+                    };
+
+                    context.Clubs.Add(club);
+                    await context.SaveChangesAsync();
+                    await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
+                    //just decommented this to try and fix registering issues
+                    //await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link

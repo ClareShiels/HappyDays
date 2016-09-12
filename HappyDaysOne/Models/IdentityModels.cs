@@ -25,7 +25,7 @@ namespace HappyDaysOne.Models
     {
         //name of connection string being passed into the db context class constructor
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("DefaultConnection"/*, throwIfV1Schema: false*/)
         {
         }
 

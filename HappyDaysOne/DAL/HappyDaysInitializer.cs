@@ -8,7 +8,7 @@ using HappyDaysOne.Models;
 
 namespace HappyDaysOne.DAL
 {
-    public class HappyDaysInitializer : DropCreateDatabaseAlways<ApplicationDbContext>
+    public class HappyDaysInitializer : DropCreateDatabaseIfModelChanges<ApplicationDbContext>
     {
         protected override void Seed(ApplicationDbContext context)
         {

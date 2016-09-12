@@ -198,6 +198,14 @@
     <Compile Include="Migrations\201609091310317_RolesUsers.Designer.cs">
       <DependentUpon>201609091310317_RolesUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609121902196_UpdateClub.cs" />
+    <Compile Include="Migrations\201609121902196_UpdateClub.Designer.cs">
+      <DependentUpon>201609121902196_UpdateClub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609122025071_UserIDdropfromClub.cs" />
+    <Compile Include="Migrations\201609122025071_UserIDdropfromClub.Designer.cs">
+      <DependentUpon>201609122025071_UserIDdropfromClub.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Activity.cs" />
@@ -310,6 +318,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609091310317_RolesUsers.resx">
       <DependentUpon>201609091310317_RolesUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609121902196_UpdateClub.resx">
+      <DependentUpon>201609121902196_UpdateClub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609122025071_UserIDdropfromClub.resx">
+      <DependentUpon>201609122025071_UserIDdropfromClub.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

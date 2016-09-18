@@ -10,6 +10,14 @@ namespace HappyDaysOne.Models
         public int ID { get; set; }
         public string InstructorFirstName { get; set; }
         public string InstructorLastName { get; set; }
+        [Display(Name = "Instructor's Full Name")]
+        public string FullName
+        {
+            get
+            {
+                return InstructorLastName + ", " + InstructorFirstName;
+            }
+        }
         public string InstructorEmail { get; set; }
         public string InstructorPhNo { get; set; }
 

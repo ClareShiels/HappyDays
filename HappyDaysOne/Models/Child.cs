@@ -39,6 +39,13 @@ namespace HappyDaysOne.Models
         public string GuardianEmail { get; set; }
         public string ChildLastName { get; set; }
         public string ChildFirstName { get; set; }
+        [Required]
+        public string AddressLine1 { get; set; }
+        [Required]
+        public string AddressLine2 { get; set; }
+        [Required]
+        public string County { get; set; }
+        public string PostalCode { get; set; }
 
         [DataType(DataType.Date)]
         //[DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
@@ -46,13 +53,6 @@ namespace HappyDaysOne.Models
         public DateTime DOB { get; set; }
         //public DateTime RegistrationDate{get;set;}
         public SpecialNeeds SpecialNeeds { get; set; }
-
-        //foreign key from the address entity 1:m
-        //[ForeignKey("Address")]
-        //public int AddressID { get; set; }
-
-        //navigation properties implementing a 1:1 relationship between Child and Address
-        public virtual ICollection<Address> Addresses { get; set; }
 
         //navigation properties implementing a 1:m relationship between Child and Enrolments
         public virtual ICollection<Enrolment> Enrolments { get; set; }

@@ -67,15 +67,6 @@ namespace HappyDaysOne.DAL
             enrolments.ForEach(e => context.Enrolments.Add(e));
             context.SaveChanges();
 
-            var addresses = new List<Address>
-            {
-                new Address { AddressLine1 = "1 Prospect Meadows", AddressLine2 = "Stocking Lane", Area = "Rathfarnham", PostCode = "D16H7R6", ChildID = 1, ClubID = 2},
-                new Address { AddressLine1 = "8 Watermill Grove", AddressLine2 = "Old Bawn" ,Area = "Tallaght", PostCode = "D4H6R4", ChildID = 2, ClubID = 1}
-            };
-
-            addresses.ForEach(a => context.Addresses.Add(a));
-            context.SaveChanges();
-
             var instructors = new List<Instructor>
             {
                 new Instructor { InstructorEmail = "cc@bbb.com", InstructorFirstName = "Coco", InstructorLastName = "Belle", InstructorPhNo = "0872342343" },

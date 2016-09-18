@@ -41,13 +41,13 @@ namespace HappyDaysOne.Models
         public DbSet<Enrolment> Enrolments { get; set; }
         public DbSet<Payment> Payments { get; set; }
         public DbSet<Instructor> Instructors { get; set; }
-        public DbSet<Address> Addresses { get; set; }
        
 
         //possibly will need this as before in miniproject to get the db working
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+        }
     }
-}
 }

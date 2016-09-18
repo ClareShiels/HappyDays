@@ -74,6 +74,28 @@
             @Html.DisplayFor(model => model.SpecialNeeds)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Enrolments)
+            </dt>
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>
+                        Activity Name
+                    </th>
+                </tr>
+                @foreach (var item in Model.Enrolments)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Activity.NameOfActivity)
+                        </td>
+                    </tr>
+                }
+                </table>
+        </dd>
+
+
     </dl>
 </div>
 <p>

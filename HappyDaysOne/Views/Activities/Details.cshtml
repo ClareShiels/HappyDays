@@ -73,6 +73,26 @@
         <dd>
             @Html.DisplayFor(model => model.ClassTime)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Instructors)
+        </dt>
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>
+                        Instructor's Name
+                    </th>
+                </tr>
+                @foreach (var item in Model.Instructors)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FullName)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
 
     </dl>
 </div>

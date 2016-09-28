@@ -7,13 +7,13 @@ namespace HappyDaysOne.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class UserIDdropfromClub : IMigrationMetadata
+    public sealed partial class InitialCreate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UserIDdropfromClub));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
         
         string IMigrationMetadata.Id
         {
-            get { return "201609122025071_UserIDdropfromClub"; }
+            get { return "201609251543177_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

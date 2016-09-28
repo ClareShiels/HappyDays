@@ -8,7 +8,7 @@ namespace HappyDaysOne.Migrations
         public override void Up()
         {
             CreateTable(
-                "dbo.Activities",
+                "dbo.Activity",
                 c => new
                     {
                         ID = c.Int(nullable: false, identity: true),
@@ -22,11 +22,11 @@ namespace HappyDaysOne.Migrations
                         ClubID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.Clubs", t => t.ClubID, cascadeDelete: true)
+                .ForeignKey("dbo.Club", t => t.ClubID, cascadeDelete: true)
                 .Index(t => t.ClubID);
             
             CreateTable(
-                "dbo.Clubs",
+                "dbo.Club",
                 c => new
                     {
                         ID = c.Int(nullable: false, identity: true),
@@ -35,45 +35,15 @@ namespace HappyDaysOne.Migrations
                         ContactPhNo = c.String(),
                         ContactEmail = c.String(nullable: false),
                         ClubName = c.String(),
+                        AddressLine1 = c.String(nullable: false),
+                        AddressLine2 = c.String(nullable: false),
+                        County = c.String(nullable: false),
+                        PostalCode = c.String(),
                     })
                 .PrimaryKey(t => t.ID);
             
             CreateTable(
-                "dbo.Addresses",
-                c => new
-                    {
-                        ID = c.Int(nullable: false, identity: true),
-                        ChildID = c.Int(nullable: false),
-                        ClubID = c.Int(nullable: false),
-                        AddressLine1 = c.String(),
-                        AddressLine2 = c.String(),
-                        Area = c.String(),
-                        PostCode = c.String(),
-                    })
-                .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.Children", t => t.ChildID, cascadeDelete: true)
-                .ForeignKey("dbo.Clubs", t => t.ClubID, cascadeDelete: true)
-                .Index(t => t.ChildID)
-                .Index(t => t.ClubID);
-            
-            CreateTable(
-                "dbo.Children",
-                c => new
-                    {
-                        ID = c.Int(nullable: false, identity: true),
-                        GuardianFirstName = c.String(nullable: false, maxLength: 50),
-                        GuardianLastName = c.String(nullable: false, maxLength: 50),
-                        GuardianPhNo = c.String(),
-                        GuardianEmail = c.String(nullable: false),
-                        ChildLastName = c.String(),
-                        ChildFirstName = c.String(),
-                        DOB = c.DateTime(nullable: false),
-                        SpecialNeeds = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.ID);
-            
-            CreateTable(
-                "dbo.Enrolments",
+                "dbo.Enrolment",
                 c => new
                     {
                         ID = c.Int(nullable: false, identity: true),
@@ -83,13 +53,33 @@ namespace HappyDaysOne.Migrations
                         ActivityID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.Activities", t => t.ActivityID, cascadeDelete: true)
-                .ForeignKey("dbo.Children", t => t.ChildID, cascadeDelete: true)
+                .ForeignKey("dbo.Activity", t => t.ActivityID, cascadeDelete: true)
+                .ForeignKey("dbo.Child", t => t.ChildID, cascadeDelete: true)
                 .Index(t => t.ChildID)
                 .Index(t => t.ActivityID);
             
             CreateTable(
-                "dbo.Payments",
+                "dbo.Child",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        GuardianFirstName = c.String(nullable: false, maxLength: 50),
+                        GuardianLastName = c.String(nullable: false, maxLength: 50),
+                        GuardianPhNo = c.String(),
+                        GuardianEmail = c.String(nullable: false),
+                        ChildLastName = c.String(),
+                        ChildFirstName = c.String(),
+                        AddressLine1 = c.String(nullable: false),
+                        AddressLine2 = c.String(nullable: false),
+                        County = c.String(nullable: false),
+                        PostalCode = c.String(),
+                        DOB = c.DateTime(nullable: false),
+                        SpecialNeeds = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.ID);
+            
+            CreateTable(
+                "dbo.Payment",
                 c => new
                     {
                         EnrolmentID = c.Int(nullable: false),
@@ -100,11 +90,11 @@ namespace HappyDaysOne.Migrations
                         PayeeName = c.String(),
                     })
                 .PrimaryKey(t => t.EnrolmentID)
-                .ForeignKey("dbo.Enrolments", t => t.EnrolmentID)
+                .ForeignKey("dbo.Enrolment", t => t.EnrolmentID)
                 .Index(t => t.EnrolmentID);
             
             CreateTable(
-                "dbo.Instructors",
+                "dbo.Instructor",
                 c => new
                     {
                         ID = c.Int(nullable: false, identity: true),
@@ -184,17 +174,17 @@ namespace HappyDaysOne.Migrations
                 .Index(t => t.UserId);
             
             CreateTable(
-                "dbo.InstructorActivities",
+                "dbo.InstructorActivity",
                 c => new
                     {
-                        Instructor_ID = c.Int(nullable: false),
-                        Activity_ID = c.Int(nullable: false),
+                        InstructorID = c.Int(nullable: false),
+                        ActivityID = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => new { t.Instructor_ID, t.Activity_ID })
-                .ForeignKey("dbo.Instructors", t => t.Instructor_ID, cascadeDelete: true)
-                .ForeignKey("dbo.Activities", t => t.Activity_ID, cascadeDelete: true)
-                .Index(t => t.Instructor_ID)
-                .Index(t => t.Activity_ID);
+                .PrimaryKey(t => new { t.InstructorID, t.ActivityID })
+                .ForeignKey("dbo.Instructor", t => t.InstructorID, cascadeDelete: true)
+                .ForeignKey("dbo.Activity", t => t.ActivityID, cascadeDelete: true)
+                .Index(t => t.InstructorID)
+                .Index(t => t.ActivityID);
             
         }
         
@@ -204,41 +194,36 @@ namespace HappyDaysOne.Migrations
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
-            DropForeignKey("dbo.InstructorActivities", "Activity_ID", "dbo.Activities");
-            DropForeignKey("dbo.InstructorActivities", "Instructor_ID", "dbo.Instructors");
-            DropForeignKey("dbo.Activities", "ClubID", "dbo.Clubs");
-            DropForeignKey("dbo.Addresses", "ClubID", "dbo.Clubs");
-            DropForeignKey("dbo.Addresses", "ChildID", "dbo.Children");
-            DropForeignKey("dbo.Payments", "EnrolmentID", "dbo.Enrolments");
-            DropForeignKey("dbo.Enrolments", "ChildID", "dbo.Children");
-            DropForeignKey("dbo.Enrolments", "ActivityID", "dbo.Activities");
-            DropIndex("dbo.InstructorActivities", new[] { "Activity_ID" });
-            DropIndex("dbo.InstructorActivities", new[] { "Instructor_ID" });
+            DropForeignKey("dbo.InstructorActivity", "ActivityID", "dbo.Activity");
+            DropForeignKey("dbo.InstructorActivity", "InstructorID", "dbo.Instructor");
+            DropForeignKey("dbo.Payment", "EnrolmentID", "dbo.Enrolment");
+            DropForeignKey("dbo.Enrolment", "ChildID", "dbo.Child");
+            DropForeignKey("dbo.Enrolment", "ActivityID", "dbo.Activity");
+            DropForeignKey("dbo.Activity", "ClubID", "dbo.Club");
+            DropIndex("dbo.InstructorActivity", new[] { "ActivityID" });
+            DropIndex("dbo.InstructorActivity", new[] { "InstructorID" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
-            DropIndex("dbo.Payments", new[] { "EnrolmentID" });
-            DropIndex("dbo.Enrolments", new[] { "ActivityID" });
-            DropIndex("dbo.Enrolments", new[] { "ChildID" });
-            DropIndex("dbo.Addresses", new[] { "ClubID" });
-            DropIndex("dbo.Addresses", new[] { "ChildID" });
-            DropIndex("dbo.Activities", new[] { "ClubID" });
-            DropTable("dbo.InstructorActivities");
+            DropIndex("dbo.Payment", new[] { "EnrolmentID" });
+            DropIndex("dbo.Enrolment", new[] { "ActivityID" });
+            DropIndex("dbo.Enrolment", new[] { "ChildID" });
+            DropIndex("dbo.Activity", new[] { "ClubID" });
+            DropTable("dbo.InstructorActivity");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
-            DropTable("dbo.Instructors");
-            DropTable("dbo.Payments");
-            DropTable("dbo.Enrolments");
-            DropTable("dbo.Children");
-            DropTable("dbo.Addresses");
-            DropTable("dbo.Clubs");
-            DropTable("dbo.Activities");
+            DropTable("dbo.Instructor");
+            DropTable("dbo.Payment");
+            DropTable("dbo.Child");
+            DropTable("dbo.Enrolment");
+            DropTable("dbo.Club");
+            DropTable("dbo.Activity");
         }
     }
 }

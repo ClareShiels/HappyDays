@@ -6,6 +6,7 @@ using Owin;
 using HappyDaysOne.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using HappyDaysOne.Migrations;
 using System.Security.Claims;
  
 
@@ -43,6 +44,7 @@ namespace HappyDaysOne
 
                 string userPWD = "Twilight1";
 
+                //getting errors here now as of 25/9/16, no user created
                 var chkUser = UserManager.Create(user, userPWD);
 
                 //Add default superUser (Clare Shiels) to the Role of Admin   

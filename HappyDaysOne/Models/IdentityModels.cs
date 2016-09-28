@@ -4,8 +4,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using HappyDaysOne.Migrations;
+using System.ComponentModel.DataAnnotations.Schema;
 using HappyDaysOne.DAL;
-
 
 namespace HappyDaysOne.Models
 {
@@ -48,6 +49,12 @@ namespace HappyDaysOne.Models
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+            modelBuilder.Entity<Instructor>()
+                .HasMany(i => i.Activities).WithMany(i => i.Instructors)
+                .Map(m => m.MapLeftKey("InstructorID")
+                    .MapRightKey("ActivityID")
+                    .ToTable("InstructorActivity"));
         }
     }
 }

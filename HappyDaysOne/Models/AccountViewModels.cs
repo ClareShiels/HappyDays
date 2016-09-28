@@ -82,7 +82,7 @@ namespace HappyDaysOne.Models
 
 
         [Required]
-        [Display(Name = "User Roles")]
+        [Display(Name = "UserRoles")]
         public string UserRoles { get; set; }
 
         [Required]

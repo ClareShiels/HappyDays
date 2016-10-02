@@ -40,6 +40,9 @@ namespace HappyDaysOne.Models
         [Required]
         public string County { get; set; }
         public string PostalCode { get; set; }
+        //foreign key for ApplicationUser
+        [ForeignKey("UserID")]
+        public string UserID { get; set; }
 
         //Navigation Properties: 
 
@@ -48,5 +51,8 @@ namespace HappyDaysOne.Models
         //navigation property implementing a 1:m relationship between activity centre and activities
         public virtual ICollection<Activity> Activities { get; set; }
 
+        //navigation property implementing a 1:1 relationship between Club Manager and Application User
+        
+        public virtual ApplicationUser User { get; set; }
     }
 }

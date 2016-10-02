@@ -19,8 +19,6 @@ namespace HappyDaysOne.Migrations
 
         protected override void Seed(ApplicationDbContext context)
         {
-        //    protected override void Seed(ApplicationDbContext context)
-        //{
             //adding the entity details to the approprite DbSet property and saving the changes to the db
             //entering some child details for initialising the db
             var children = new List<Child>

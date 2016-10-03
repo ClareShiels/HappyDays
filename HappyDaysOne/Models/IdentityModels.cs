@@ -48,7 +48,7 @@ namespace HappyDaysOne.Models
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            //modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
             modelBuilder.Entity<Instructor>()
                 .HasMany(i => i.Activities).WithMany(i => i.Instructors)

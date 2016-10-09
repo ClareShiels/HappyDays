@@ -7,13 +7,13 @@ namespace HappyDaysOne.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class InitialCreate1 : IMigrationMetadata
+    public sealed partial class ChildPermissionToLeaveProp : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ChildPermissionToLeaveProp));
         
         string IMigrationMetadata.Id
         {
-            get { return "201609251646409_InitialCreate1"; }
+            get { return "201610090112281_ChildPermissionToLeaveProp"; }
         }
         
         string IMigrationMetadata.Source

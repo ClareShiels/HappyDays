@@ -14,7 +14,7 @@ namespace HappyDaysOne.Controllers
 {
     public class ClubsController : Controller
     {
-        private HappyDaysOne.Models.ApplicationDbContext db = new HappyDaysOne.Models.ApplicationDbContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Clubs
         public async Task<ActionResult> Index()
@@ -48,7 +48,7 @@ namespace HappyDaysOne.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ID,ContactFirstName,ContactLastName,ContactPhNo,ContactEmail,ClubName")] Club club)
+        public async Task<ActionResult> Create([Bind(Include = "ID,FirstName,LastName,ContactPhNo,ContactEmail,ClubName,AddressLine1,AddressLine2,County,PostalCode")] Club club)
         {
             if (ModelState.IsValid)
             {
@@ -80,7 +80,7 @@ namespace HappyDaysOne.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "ID,ContactFirstName,ContactLastName,ContactPhNo,ContactEmail,ClubName")] Club club)
+        public async Task<ActionResult> Edit([Bind(Include = "ID,FirstName,LastName,ContactPhNo,ContactEmail,ClubName")] Club club)
         {
             if (ModelState.IsValid)
             {

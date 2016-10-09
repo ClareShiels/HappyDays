@@ -158,16 +158,22 @@ namespace HappyDaysOne.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email };
+                var user = new ApplicationUser
+                {
+                    UserName = model.UserName,
+                    Email = model.Email
+                };
+
                 var result = await UserManager.CreateAsync(user, model.Password);
+
                 if (result.Succeeded)
                 {
                     var club = new Club
                     {
-                        //TRYING SOMETHING SAT NIGHT TO TRY GET IDENTITY WORKING
-                        UserID = user.Id,
-                        ContactFirstName = model.FirstName,
-                        ContactLastName = model.LastName,
+                        //TRYING SOMETHING else SAT NIGHT 8/10 TO TRY GET IDENTITY WORKING, SHOULD THIS BE HERE??????
+                       // UserID = user.Id,
+                        FirstName = model.FirstName,
+                        LastName = model.LastName,
                         ContactEmail = model.Email
                     };
 

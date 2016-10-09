@@ -193,9 +193,13 @@
     <Compile Include="Migrations\201609251543177_InitialCreate.Designer.cs">
       <DependentUpon>201609251543177_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201609251646409_InitialCreate1.cs" />
-    <Compile Include="Migrations\201609251646409_InitialCreate1.Designer.cs">
-      <DependentUpon>201609251646409_InitialCreate1.cs</DependentUpon>
+    <Compile Include="Migrations\201610082322381_UserNamesChanged.cs" />
+    <Compile Include="Migrations\201610082322381_UserNamesChanged.Designer.cs">
+      <DependentUpon>201610082322381_UserNamesChanged.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610090112281_ChildPermissionToLeaveProp.cs" />
+    <Compile Include="Migrations\201610090112281_ChildPermissionToLeaveProp.Designer.cs">
+      <DependentUpon>201610090112281_ChildPermissionToLeaveProp.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -306,8 +310,11 @@
     <EmbeddedResource Include="Migrations\201609251543177_InitialCreate.resx">
       <DependentUpon>201609251543177_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609251646409_InitialCreate1.resx">
-      <DependentUpon>201609251646409_InitialCreate1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201610082322381_UserNamesChanged.resx">
+      <DependentUpon>201610082322381_UserNamesChanged.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610090112281_ChildPermissionToLeaveProp.resx">
+      <DependentUpon>201610090112281_ChildPermissionToLeaveProp.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

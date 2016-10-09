@@ -24,10 +24,10 @@ namespace HappyDaysOne.Migrations
             var children = new List<Child>
             {
                 new Child { ChildFirstName = "Cora", ChildLastName = "Shiels", GuardianEmail = "clareshiels@gmail.com",
-                    GuardianFirstName = "Clare", GuardianLastName = "Shiels", GuardianPhNo = "0871234567",
+                    FirstName = "Clare", LastName = "Shiels", GuardianPhNo = "0871234567",
                     DOB = DateTime.Parse("03-06-2009"), SpecialNeeds = SpecialNeeds.no, AddressLine1 = "1 Prospect Meadows", AddressLine2 = "Rathfarnham", County = "Dublin 16", PostalCode = "D16H7R4"},
                 new Child { ChildFirstName = "Noah", ChildLastName = "Cashin", GuardianEmail = "clareshiels@gmail.com",
-                    GuardianFirstName = "Clare", GuardianLastName = "Shiels", GuardianPhNo = "0871234567",
+                    FirstName = "Clare", LastName = "Shiels", GuardianPhNo = "0871234567",
                     DOB = DateTime.Parse("06-12-2007"), SpecialNeeds = SpecialNeeds.no, AddressLine1 = "1 Prospect Meadows", AddressLine2 = "Rathfarnham", County = "Dublin 16", PostalCode = "D16H7R4" },
 
             };
@@ -39,10 +39,10 @@ namespace HappyDaysOne.Migrations
 
             var clubs = new List<Club>
             {
-                new Club { ClubName = "St Marys BNS", ContactEmail = "activities@StMarys.com",  ContactFirstName = "Paula",
-                    ContactLastName = "Byrne", ContactPhNo = "0871231234", AddressLine1 = "2 Templeogue Rd", AddressLine2 = "Templeogue", County = "Dublin 14", PostalCode = "D14H7R8"  },
-                new Club { ClubName = "Loreto Grange Rd", ContactEmail = "activities@Loreto.com",  ContactFirstName = "Jason",
-                    ContactLastName = "Dean", ContactPhNo = "0861231231", AddressLine1 = "3 Cedar Ave", AddressLine2 = "Terenure", County = "Dublin 6", PostalCode = "D6H7R5" }
+                new Club { ClubName = "St Marys BNS", ContactEmail = "activities@StMarys.com",  FirstName = "Paula",
+                    LastName = "Byrne", ContactPhNo = "0871231234", AddressLine1 = "2 Templeogue Rd", AddressLine2 = "Templeogue", County = "Dublin 14", PostalCode = "D14H7R8"  },
+                new Club { ClubName = "Loreto Grange Rd", ContactEmail = "activities@Loreto.com",  FirstName = "Jason",
+                    LastName = "Dean", ContactPhNo = "0861231231", AddressLine1 = "3 Cedar Ave", AddressLine2 = "Terenure", County = "Dublin 6", PostalCode = "D6H7R5" }
             };
 
             //seeding the Clubs DBSet

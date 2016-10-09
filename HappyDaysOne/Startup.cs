@@ -29,12 +29,12 @@ namespace HappyDaysOne
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
             var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 
-            //creating 1st admin role and default admin user  
+             // creating 1st admin role and default admin user
             if (!roleManager.RoleExists("Admin"))
             {
                 // creating an Admin ROLE
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
-                role.Name = "Admin";
+                role.Name = "Administrator";
                 roleManager.Create(role);
 
                 //creating default admin superUser to maintain the site, validation logic for usernames and pw is found in HappyDaysOne/App_Start/IndentityConfig.cs
@@ -55,12 +55,12 @@ namespace HappyDaysOne
                 }
             }
 
-            //creating a clubManager role to be enabled to perform CRUD on activities and lecturers and R on children
+             // creating a clubManager role to be enabled to perform CRUD on activities and lecturers and R on children
             if (!roleManager.RoleExists("Club Manager"))
             {
-                    var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
-                    role.Name = "Club Manager";
-                    roleManager.Create(role);
+                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                role.Name = "Club Manager";
+                roleManager.Create(role);
 
             }
 

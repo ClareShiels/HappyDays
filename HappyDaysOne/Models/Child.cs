@@ -18,19 +18,19 @@ namespace HappyDaysOne.Models
         [Column("GuardianFirstName")]
         [Display(Name = "Guardian's First Name")]
 
-        public string GuardianFirstName { get; set; }
+        public string FirstName { get; set; }
 
         [Required]
         [StringLength(50, ErrorMessage = "Last Name cannot be longer than 50 characters.")]
-        [Display(Name = "Last Name")]
-        public string GuardianLastName { get; set; }
+        [Display(Name = "Guardian's Last Name")]
+        public string LastName { get; set; }
 
         [Display(Name = "Guardian's Full Name")]
         public string FullName
         {
             get
             {
-                return GuardianLastName + ", " + GuardianFirstName;
+                return LastName + ", " + FirstName;
             }
         }
         public string GuardianPhNo { get; set; }
@@ -46,6 +46,7 @@ namespace HappyDaysOne.Models
         [Required]
         public string County { get; set; }
         public string PostalCode { get; set; }
+        public Boolean PermissionToLeave { get; set; }
 
         [DataType(DataType.Date)]
         //[DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]

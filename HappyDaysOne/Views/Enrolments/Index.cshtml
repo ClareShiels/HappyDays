@@ -1,4 +1,4 @@
-﻿@model IEnumerable<HappyDaysOne.Models.Club>
+﻿@model IEnumerable<HappyDaysOne.Models.Enrolment>
 
 @{
     ViewBag.Title = "Index";
@@ -12,19 +12,19 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.FirstName)
+            @Html.DisplayNameFor(model => model.Activity.NameOfActivity)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.LastName)
+            @Html.DisplayNameFor(model => model.Child.FirstName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ContactPhNo)
+            @Html.DisplayNameFor(model => model.Payment.PayeeName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ContactEmail)
+            @Html.DisplayNameFor(model => model.PaymentReceived)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ClubName)
+            @Html.DisplayNameFor(model => model.PaymentDue)
         </th>
         <th></th>
     </tr>
@@ -32,19 +32,19 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
+            @Html.DisplayFor(modelItem => item.Activity.NameOfActivity)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.LastName)
+            @Html.DisplayFor(modelItem => item.Child.FirstName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ContactPhNo)
+            @Html.DisplayFor(modelItem => item.Payment.PayeeName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ContactEmail)
+            @Html.DisplayFor(modelItem => item.PaymentReceived)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ClubName)
+            @Html.DisplayFor(modelItem => item.PaymentDue)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |

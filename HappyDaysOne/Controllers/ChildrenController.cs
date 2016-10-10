@@ -6,17 +6,20 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Net;
 using System.Web;
+using System.Web.Routing;
 using System.Web.Mvc;
 using HappyDaysOne.DAL;
 using HappyDaysOne.Models;
 
 namespace HappyDaysOne.Controllers
 {
+  
     public class ChildrenController : Controller
     {
         private HappyDaysOne.Models.ApplicationDbContext db = new HappyDaysOne.Models.ApplicationDbContext();
 
         // GET: Children
+        
         public async Task<ActionResult> Index()
         {
             return View(await db.Children.ToListAsync());

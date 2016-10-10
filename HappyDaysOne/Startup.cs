@@ -41,8 +41,8 @@ namespace HappyDaysOne
                 var user = new ApplicationUser();
                 user.UserName = "ClareShiels";
                 user.Email = "clare.cashin@gmail.com";
-
-                string userPWD = "Twilight1";
+                //changed PW 10/10/16 to attempt overcome identity issues, ensuring its legit
+                string userPWD = "Twilight1!";
 
                 //getting errors here now as of 25/9/16, no user created
                 var chkUser = UserManager.Create(user, userPWD);

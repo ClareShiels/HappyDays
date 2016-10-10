@@ -24,12 +24,12 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Child", "Child", "Home")</li>
-                    <li>@Html.ActionLink("Clubs", "Clubs", "Home")</li>
-                    <li>@Html.ActionLink("Activities", "Activities", "Home")</li>
-                    <li>@Html.ActionLink("Enrolments", "Enrolments", "Home")</li>
-                    <li>@Html.ActionLink("Instructors", "Instructors", "Home" )</li>
-                    <li>@Html.ActionLink("Payments", "Payments", "Home")</li>
+                    <li>@Html.ActionLink("Children", "Index", "Children", new { area = "" }, null))</li>
+                    <li>@Html.ActionLink("Clubs", "Index", "Clubs", new { area = "" }, null))</li>
+                    <li>@Html.ActionLink("Activities", "Index", "Activities", new { area = "" }, null))</li>
+                    <li>@Html.ActionLink("Enrolments", "Index", "Enrolments", new { area = "" }, null))</li>
+                    <li>@Html.ActionLink("Instructors", "Index", "Instructors", new { area = "" }, null))</li>
+                    <li>@Html.ActionLink("Payments", "Index", "Payments", new { area = "" }, null))</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

@@ -181,6 +181,7 @@
     <Compile Include="Controllers\ActivitiesController.cs" />
     <Compile Include="Controllers\ChildrenController.cs" />
     <Compile Include="Controllers\ClubsController.cs" />
+    <Compile Include="Controllers\EnrolmentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
@@ -206,6 +207,7 @@
     <Compile Include="Models\Activity.cs" />
     <Compile Include="Models\Club.cs" />
     <Compile Include="Models\Enrolment.cs" />
+    <Compile Include="Models\HappyDaysOneContext.cs" />
     <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Child.cs" />
@@ -281,11 +283,6 @@
     <Content Include="Views\Children\Details.cshtml" />
     <Content Include="Views\Children\Edit.cshtml" />
     <Content Include="Views\Children\Index.cshtml" />
-    <Content Include="Views\Addresses\Create.cshtml" />
-    <Content Include="Views\Addresses\Delete.cshtml" />
-    <Content Include="Views\Addresses\Details.cshtml" />
-    <Content Include="Views\Addresses\Edit.cshtml" />
-    <Content Include="Views\Addresses\Index.cshtml" />
     <Content Include="Views\Clubs\Create.cshtml" />
     <Content Include="Views\Clubs\Delete.cshtml" />
     <Content Include="Views\Clubs\Details.cshtml" />
@@ -294,6 +291,11 @@
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Role\Index.cshtml" />
     <Content Include="Views\Role\Create.cshtml" />
+    <Content Include="Views\Enrolments\Create.cshtml" />
+    <Content Include="Views\Enrolments\Delete.cshtml" />
+    <Content Include="Views\Enrolments\Details.cshtml" />
+    <Content Include="Views\Enrolments\Edit.cshtml" />
+    <Content Include="Views\Enrolments\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

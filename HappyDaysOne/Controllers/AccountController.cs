@@ -171,7 +171,7 @@ namespace HappyDaysOne.Controllers
                     var club = new Club
                     {
                         //TRYING SOMETHING else SAT NIGHT 8/10 TO TRY GET IDENTITY WORKING, SHOULD THIS BE HERE??????
-                       // UserID = user.Id,
+                        UserID = user.Id,
                         FirstName = model.FirstName,
                         LastName = model.LastName,
                         ContactEmail = model.Email

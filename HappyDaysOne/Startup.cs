@@ -34,7 +34,7 @@ namespace HappyDaysOne
             {
                 // creating an Admin ROLE
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
-                role.Name = "Administrator";
+                role.Name = "Admin";
                 roleManager.Create(role);
 
                 //creating default admin superUser to maintain the site, validation logic for usernames and pw is found in HappyDaysOne/App_Start/IndentityConfig.cs

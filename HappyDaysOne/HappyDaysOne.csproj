@@ -202,6 +202,10 @@
     <Compile Include="Migrations\201610090112281_ChildPermissionToLeaveProp.Designer.cs">
       <DependentUpon>201610090112281_ChildPermissionToLeaveProp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610132219247_FK in Club Model to ApplicationUser.cs" />
+    <Compile Include="Migrations\201610132219247_FK in Club Model to ApplicationUser.Designer.cs">
+      <DependentUpon>201610132219247_FK in Club Model to ApplicationUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Activity.cs" />
@@ -317,6 +321,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610090112281_ChildPermissionToLeaveProp.resx">
       <DependentUpon>201610090112281_ChildPermissionToLeaveProp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610132219247_FK in Club Model to ApplicationUser.resx">
+      <DependentUpon>201610132219247_FK in Club Model to ApplicationUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

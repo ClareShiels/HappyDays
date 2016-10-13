@@ -44,7 +44,7 @@ namespace HappyDaysOne.Models
         
         //foreign key for ApplicationUser
         //[ForeignKey("UserID")]
-        //public string UserID { get; set; }
+        public string UserID { get; set; }
 
         //Navigation Properties: 
 
@@ -54,7 +54,7 @@ namespace HappyDaysOne.Models
         public virtual ICollection<Activity> Activities { get; set; }
 
         //navigation property implementing a 1:1 relationship between Club Manager and Application User
-        
-       //public virtual ApplicationUser User { get; set; }
+        [ForeignKey("UserID")]
+        public virtual ApplicationUser User { get; set; }
     }
 }

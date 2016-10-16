@@ -30,7 +30,7 @@ namespace HappyDaysOne.Models
         {
             get
             {
-                return LastName + ", " + FirstName;
+                return FirstName + ", " + LastName;
             }
         }
         public string GuardianPhNo { get; set; }
@@ -48,6 +48,7 @@ namespace HappyDaysOne.Models
         public string PostalCode { get; set; }
         public Boolean PermissionToLeave { get; set; }
 
+        [Required]
         [DataType(DataType.Date)]
         //[DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Child's Date Of Birth")]

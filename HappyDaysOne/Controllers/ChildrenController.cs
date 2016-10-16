@@ -51,7 +51,7 @@ namespace HappyDaysOne.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ID,FirstName,LastName,GuardianPhNo,GuardianEmail,ChildLastName,ChildFirstName,DOB,SpecialNeeds,AddressLine1,AddressLine2,County,PostalCode,PermissionToLeave")] Child child)
+        public async Task<ActionResult> Create([Bind(Include = "ID,ChildFirstName,ChildLastName,FirstName,LastName,GuardianPhNo,GuardianEmail,DOB,SpecialNeeds,AddressLine1,AddressLine2,County,PostalCode,PermissionToLeave")] Child child)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +83,7 @@ namespace HappyDaysOne.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "ID,FirstName,LastName,GuardianPhNo,GuardianEmail,ChildLastName,ChildFirstName,DOB,SpecialNeeds")] Child child)
+        public async Task<ActionResult> Edit([Bind(Include = "ID,FirstName,LastName,GuardianPhNo,GuardianEmail,ChildLastName,ChildFirstName,DOB,SpecialNeeds,AddressLine1, AddressLine2, County, PostalCode, PermissionToLeave")] Child child)
         {
             if (ModelState.IsValid)
             {

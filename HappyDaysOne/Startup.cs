@@ -63,7 +63,7 @@ namespace HappyDaysOne
                 roleManager.Create(role);
 
             }
-
+            //reversed 15/10/16 and registering ok//commenting out below lines to troubleshoot through role assignment15/10/16
             // creating a Child's Guardian role to be enabled to perform CRUD on child and    
             if (!roleManager.RoleExists("Child's Guardian"))
             {

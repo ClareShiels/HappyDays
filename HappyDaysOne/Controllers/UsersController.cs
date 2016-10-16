@@ -14,6 +14,8 @@ namespace HappyDaysOne.Controllers
     [Authorize]
     public class UsersController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
+        //checking if the user logged in is admin
         public Boolean isAdminUser()
         {
             if (User.Identity.IsAuthenticated)
@@ -33,7 +35,9 @@ namespace HappyDaysOne.Controllers
             }
             return false;
         }
-        // GET: Users
+        // GET: Users  
+        //Checking if User is logged into the system if not then display message "Not logged in"
+        //If user is authenticated, check the logged in user's role
         public ActionResult Index()
         {
             if (User.Identity.IsAuthenticated)

@@ -5,11 +5,14 @@ using System.Web;
 using System.Web.Mvc;
 using HappyDaysOne.Models;
 using HappyDaysOne.DAL;
+using HappyDaysOne.ViewModels;
 
 namespace HappyDaysOne.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
+
         [AllowAnonymous]
         public ActionResult Index()
         {
@@ -18,9 +21,20 @@ namespace HappyDaysOne.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            IQueryable<TopActivity> data = from activity in db.Activities
+                                           group activity by activity.AgeGroup into activityGroupByAge
+                                           select new TopActivity()
+                                           {
+                                               AgeGroup = activityGroupByAge.Key,
+                                               ActivityCount = activityGroupByAge.Count()
+                                           };
+            return View(data.ToList());
+        }
 
-            return View();
+        protected override void Dispose(bool disposing)
+        {
+            db.Dispose();
+            base.Dispose(disposing);
         }
 
         public ActionResult Contact()

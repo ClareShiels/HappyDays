@@ -51,7 +51,7 @@ namespace HappyDaysOne.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ID,NameOfActivity,AgeGroup,ActivityType,ActivityCourseStartDate,ActivityCourseEndDate,Day,ClassTime,ClubID")] Activity activity)
+        public async Task<ActionResult> Create([Bind(Include = "NameOfActivity,AgeGroup,ActivityType,ActivityCourseStartDate,ActivityCourseEndDate,Day,ClassTime,ClubName")] Activity activity)
         {
             if (ModelState.IsValid)
             {

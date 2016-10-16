@@ -1,7 +1,29 @@
-﻿@{
-    ViewBag.Title = "About";
+﻿@model IEnumerable<HappyDaysOne.ViewModels.TopActivity>
+
+@{
+    ViewBag.Title = "Top Activity in Age Group";
 }
 <h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+<table>
+    <tr>
+        <th>
+            Age Group
+        </th>
+        <th>
+            ActivityCount
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AgeGroup)
+            </td>
+            <td>
+                @item.ActivityCount
+            </td>
+        </tr>
+    }
+</table>

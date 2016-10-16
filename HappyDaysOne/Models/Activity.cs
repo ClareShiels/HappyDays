@@ -30,12 +30,12 @@ namespace HappyDaysOne.Models
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
-        [Display(Name = "Date of First Class in Course")]
+        [Display(Name = "Start Date")]
         public DateTime ActivityCourseStartDate { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
-        [Display(Name = "Date Of Last Class in Course")]
+        [Display(Name = "Finish Date")]
         public DateTime ActivityCourseEndDate { get; set; }
 
         public DayOfWeek Day { get; set; }

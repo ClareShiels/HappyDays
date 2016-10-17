@@ -18,12 +18,40 @@ namespace HappyDaysOne.Controllers
     {
         private HappyDaysOne.Models.ApplicationDbContext db = new HappyDaysOne.Models.ApplicationDbContext();
 
-        // GET: Children
+        // GET: Children sorted either by lastname or DOB
+        //trying to remove async to get sorting working 17/10
         
-        public async Task<ActionResult> Index()
+        public ActionResult Index(string sortOrder, string searchString)
         {
-            return View(await db.Children.ToListAsync());
+            //viewbag variables used to allow the view to configure the column heading hyperlinks with appropriate query string values
+            ViewBag.NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DOBSort = sortOrder == "DOB" ? "date_desc" : "DOB";
+            var children = from c in db.Children
+                           select c;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                children = children.Where(c => c.ChildLastName.ToUpper().Contains(searchString.ToUpper()) ||
+                                               c.ChildFirstName.ToUpper().Contains(searchString.ToUpper()));
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    children = children.OrderByDescending(c => c.ChildLastName);
+                    break;
+                    case "DOB":
+                    children = children.OrderBy(c => c.DOB);
+                    break;
+                case "date_desc":
+                    children = children.OrderByDescending(c => c.DOB);
+                    break;
+                default:
+                    children = children.OrderBy(c => c.ChildLastName);
+                    break;
+            }
+            return View(children.ToList());
         }
+
+
 
         // GET: Children/Details/5
         public async Task<ActionResult> Details(int? id)

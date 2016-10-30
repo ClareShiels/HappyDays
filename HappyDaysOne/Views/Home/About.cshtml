@@ -11,7 +11,10 @@
             Age Group
         </th>
         <th>
-            ActivityCount
+            Activity Name
+        </th>
+        <th>
+            Activity Count
         </th>
     </tr>
 
@@ -20,6 +23,9 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.AgeGroup)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameOfActivity)
             </td>
             <td>
                 @item.ActivityCount

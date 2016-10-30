@@ -46,12 +46,32 @@ namespace HappyDaysOne.Controllers
                 ViewBag.Name = user.Name;
 
                 ViewBag.displayMenu = "No";
-
+                //check if user is Admin using method described above which returns a boolean
                 if (isAdminUser())
                 {
                     ViewBag.displayMenu = "Yes";
                 }
+                //decommenting 29/10
+                //check if user is Child's Guardian
+                //else if (User.IsInRole("Child's Guardian"))
+                //{
+                //    ViewBag.displayMenu = "Child's Guardian";
+                //    ViewBag.UserID = User.Identity.GetUserId();
+                //    var UserID = User.Identity.GetUserId();
+                //    ViewBag.ChildID = db.Children.Where(c => c.UserID == UserID);
+                //}
+                ////check if user is Club Manager
+                //else if (User.IsInRole("Club Manager"))
+                //{
+                //    ViewBag.displayMenu = "Club Manager";
+                //    ViewBag.UserID = User.Identity.GetUserId();
+                //    //add current user id into variable UserID
+                //    var UserID = User.Identity.GetUserId();
+                //    ViewBag.ClubID = db.Clubs.Where(c => c.UserID == UserID);
+                //}
                 return View();
+
+                
             }
             else
             {

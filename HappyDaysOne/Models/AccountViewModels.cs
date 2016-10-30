@@ -72,13 +72,13 @@ namespace HappyDaysOne.Models
     {
         //sat 15/10/16 decommenting the below properties as they're not needed for registration
         //adding this to check registering problems 11/9 21:15
-        //[Required]
-        //[Display(Name = "First Name")]
-        //public string FirstName { get; set; }
+        [Required]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
 
-        //[Required]
-        //[Display(Name = "Last Name")]
-        //public string LastName { get; set; }
+        [Required]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
 
 
         [Required]

@@ -14,13 +14,14 @@ using HappyDaysOne.Models;
 namespace HappyDaysOne.Controllers
 {
   
+    
     public class ChildrenController : Controller
     {
         private HappyDaysOne.Models.ApplicationDbContext db = new HappyDaysOne.Models.ApplicationDbContext();
 
         // GET: Children sorted either by lastname or DOB
         //trying to remove async to get sorting working 17/10
-        
+        [Authorize(Roles = "Club Manager, Admin")]
         public ActionResult Index(string sortOrder, string searchString)
         {
             //viewbag variables used to allow the view to configure the column heading hyperlinks with appropriate query string values
@@ -69,6 +70,7 @@ namespace HappyDaysOne.Controllers
         }
 
         // GET: Children/Create
+        [Authorize(Roles = "Child's Guardian")]
         public ActionResult Create()
         {
             return View();
@@ -77,6 +79,7 @@ namespace HappyDaysOne.Controllers
         // POST: Children/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Child's Guardian, Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "ID,ChildFirstName,ChildLastName,FirstName,LastName,GuardianPhNo,GuardianEmail,DOB,SpecialNeeds,AddressLine1,AddressLine2,County,PostalCode,PermissionToLeave")] Child child)
@@ -92,6 +95,7 @@ namespace HappyDaysOne.Controllers
         }
 
         // GET: Children/Edit/5
+        [Authorize(Roles = "Child's Guardian, Admin")]
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
@@ -109,6 +113,7 @@ namespace HappyDaysOne.Controllers
         // POST: Children/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Child's Guardian, Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "ID,FirstName,LastName,GuardianPhNo,GuardianEmail,ChildLastName,ChildFirstName,DOB,SpecialNeeds,AddressLine1, AddressLine2, County, PostalCode, PermissionToLeave")] Child child)
@@ -123,6 +128,7 @@ namespace HappyDaysOne.Controllers
         }
 
         // GET: Children/Delete/5
+        [Authorize(Roles = "Child's Guardian, Admin")]
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)

@@ -44,7 +44,7 @@ namespace HappyDaysOne
                 //changed PW 10/10/16 to attempt overcome identity issues, ensuring its legit
                 string userPWD = "Twilight1!";
 
-                //getting errors here now as of 25/9/16, no user created
+                //ok now - getting errors here now as of 25/9/16, no user created
                 var chkUser = UserManager.Create(user, userPWD);
 
                 //Add default superUser (Clare Shiels) to the Role of Admin   

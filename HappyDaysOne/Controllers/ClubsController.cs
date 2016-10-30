@@ -9,13 +9,14 @@ using System.Web;
 using System.Web.Mvc;
 using HappyDaysOne.DAL;
 using HappyDaysOne.Models;
+using HappyDaysOne.ViewModels;
 
 namespace HappyDaysOne.Controllers
 {
     public class ClubsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
+        //WORKING ON GETTING THE CLUB MANAGERS PAGE TO RETURN A LIST OF ACTIVITIES IN THEIR CLUB
         // GET: Clubs
         public async Task<ActionResult> Index()
         {

@@ -11,7 +11,9 @@ namespace HappyDaysOne.ViewModels
     public class TopActivity
     {
         public AgeGroup AgeGroup { get; set; }
+        public string NameOfActivity { get; set; }
         
         public int ActivityCount { get; set; }
+
     }
 }

@@ -56,8 +56,16 @@ namespace HappyDaysOne.Models
         //public DateTime RegistrationDate{get;set;}
         public SpecialNeeds SpecialNeeds { get; set; }
 
+        //foreign key for ApplicationUser
+        //[ForeignKey("UserID")]
+        public string UserID { get; set; }
+
         //navigation properties implementing a 1:m relationship between Child and Enrolments
         public virtual ICollection<Enrolment> Enrolments { get; set; }
+
+        //navigation property implementing a 1:1 relationship between Club Manager and Application User
+        [ForeignKey("UserID")]
+        public virtual ApplicationUser User { get; set; }
 
     }
 }

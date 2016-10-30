@@ -206,6 +206,14 @@
     <Compile Include="Migrations\201610132219247_FK in Club Model to ApplicationUser.Designer.cs">
       <DependentUpon>201610132219247_FK in Club Model to ApplicationUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610231213261_UserIDChildTable.cs" />
+    <Compile Include="Migrations\201610231213261_UserIDChildTable.Designer.cs">
+      <DependentUpon>201610231213261_UserIDChildTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610231250212_FirstLastNameRegisterViewModel.cs" />
+    <Compile Include="Migrations\201610231250212_FirstLastNameRegisterViewModel.Designer.cs">
+      <DependentUpon>201610231250212_FirstLastNameRegisterViewModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Activity.cs" />
@@ -219,6 +227,8 @@
     <Compile Include="Models\Instructor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\ChildProfile.cs" />
+    <Compile Include="ViewModels\ClubsData.cs" />
     <Compile Include="ViewModels\TopActivity.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -326,6 +336,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610132219247_FK in Club Model to ApplicationUser.resx">
       <DependentUpon>201610132219247_FK in Club Model to ApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610231213261_UserIDChildTable.resx">
+      <DependentUpon>201610231213261_UserIDChildTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610231250212_FirstLastNameRegisterViewModel.resx">
+      <DependentUpon>201610231250212_FirstLastNameRegisterViewModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

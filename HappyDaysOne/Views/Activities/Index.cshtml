@@ -1,75 +1,63 @@
-﻿@model IEnumerable<HappyDaysOne.Models.Activity>
-
+﻿@model HappyDaysOne.ViewModels.ClubsData
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Club Data";
 }
 
-<h2>Index</h2>
+<h2>Club's Data</h2>
+@*<h3>@Html.Display(modelItem => item.NameOfClub)</h3>*@
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+<table class="table-bordered">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.NameOfActivity)
+            Activity
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Club.ClubName)
+            Activity ID
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.AgeGroup)
+            Age Group
+        </th>
+        @*<th>
+            Number of Bookings
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ActivityType)
-        </th>
+            Places Available
+        </th>*@
         <th>
-            @Html.DisplayNameFor(model => model.ActivityCourseStartDate)
+            Name Of Instructor
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ActivityCourseEndDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Day)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ClassTime)
-        </th>
-        <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NameOfActivity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Club.ClubName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AgeGroup)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ActivityType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ActivityCourseStartDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ActivityCourseEndDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Day)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClassTime)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model.Activities)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameOfActivity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AgeGroup)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.TBC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TBC)
+            </td>*@
+            @*@foreach (var itemActivityInstructor in Model.Instructors)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => itemActivityInstructor.FullName)
+                </td>
+            </tr>
+            }*@
+        </tr>
+        ////if(item.ID == ViewBag.ClubID)
+    }
 
 </table>
+
+

@@ -1,9 +1,9 @@
-﻿@model HappyDaysOne.ViewModels.ClubsData
+﻿@model IEnumerable<HappyDaysOne.ViewModels.ClubsData>
 @{
     ViewBag.Title = "Club Data";
 }
 
-<h2>Club's Data</h2>
+<h2>Club Data</h2>
 @*<h3>@Html.Display(modelItem => item.NameOfClub)</h3>*@
 
 <table class="table-bordered">
@@ -26,11 +26,19 @@
         <th>
             Name Of Instructor
         </th>
+        @*<th>
+            Instructor's Contact PhNo
+        </th>*@
     </tr>
 
-    @foreach (var item in Model.Activities)
+    @foreach (var item in Model.a)
     {
-        <tr>
+        string selectedRow = "";
+        if (item.ID == ViewBag.ActivityID)
+        {
+            selectedRow = "success";
+        }
+        <tr class = "@selectedRow">
             <td>
                 @Html.DisplayFor(modelItem => item.NameOfActivity)
             </td>
@@ -46,16 +54,21 @@
             <td>
                 @Html.DisplayFor(modelItem => item.TBC)
             </td>*@
-            @*@foreach (var itemActivityInstructor in Model.Instructors)
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Enrolment)
+            </td>*@
+            @foreach (var itemActivityInstructor in Model.Instructors)
             {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => itemActivityInstructor.FullName)
+                    @Html.DisplayFor(modelItem => item.Instructors.Select(itemActivityInstructor ))
                 </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => itemActivityInstructor.InstructorPhNo)
+                </td>*@
             </tr>
-            }*@
+            }
         </tr>
-        ////if(item.ID == ViewBag.ClubID)
     }
 
 </table>

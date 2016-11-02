@@ -25,10 +25,11 @@ namespace HappyDaysOne.Controllers
             var viewModel = new ClubsData();
             viewModel.Activities = db.Activities
                                      .Include(c => c.Club)
-                                     .Include(c => c.Instructors)
+                                     .Include(c => c.Instructors.Select(a => a.InstructorPhNo))
                                      .Include(c => c.Enrolments)
                                      .OrderBy(c => c.NameOfActivity);
-            //if we have a clubID we can now fill activities to the view model ClubsData activities table
+            //if we have a clubID the selected club is retrieved from list of clubs in view model.
+            //the view models activities property is now filled with activity entitiies from the club's activities navigation property
             if (clubsID != null)
             {
                 ViewBag.ClubID = clubsID.Value;

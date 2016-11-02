@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using HappyDaysOne.Models;
+using HappyDaysOne.Controllers;
 
 namespace HappyDaysOne.ViewModels
 {
@@ -15,7 +16,7 @@ namespace HappyDaysOne.ViewModels
         public IEnumerable<Activity> Activities { get; set; }
         public IEnumerable<Club> Clubs { get; set; }
         public IEnumerable<Instructor> Instructors { get; set; }
-        public IEnumerable<Payment> Payments { get; set; }
+        //public IEnumerable<Payment> Payments { get; set; }
         //public IEnumerable<ApplicationIdentity> users { get; set; }
 
         //public Club Club { get; set; }

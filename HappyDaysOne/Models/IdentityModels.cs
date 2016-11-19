@@ -14,10 +14,12 @@ namespace HappyDaysOne.Models
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
+            
             // Add custom user claims here
             //public virtual ICollection<Enrolment> enrolments { get; set; }
             return userIdentity;
@@ -51,12 +53,19 @@ namespace HappyDaysOne.Models
         {
             base.OnModelCreating(modelBuilder);
             //modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-
+            //many to many - associate table, under the hood
             modelBuilder.Entity<Instructor>()
-                .HasMany(i => i.Activities).WithMany(i => i.Instructors)
+                .HasMany(i => i.Activities)
+                .WithMany(i => i.Instructors)
                 .Map(m => m.MapLeftKey("InstructorID")
                     .MapRightKey("ActivityID")
                     .ToTable("InstructorActivity"));
+
+            //changing the name of aspnetusers to users
+            modelBuilder.Entity<IdentityUser>()
+               .ToTable("AspNetUsers");
+            modelBuilder.Entity<ApplicationUser>()
+                .ToTable("AspNetUsers");
         }
     }
 }

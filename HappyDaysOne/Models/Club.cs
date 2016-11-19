@@ -12,17 +12,18 @@ namespace HappyDaysOne.Models
 {
     public class Club
     {
+        //primary key - ClubID
         public int ID { get; set; }
+
         [Required]
         [StringLength(50, ErrorMessage = "First Name cannot be longer than 50 characters.")]
         [Column("FirstName")]
         [Display(Name = "Club Administrator's First Name")]
-
         public string FirstName { get; set; }
 
         [Required]
         [StringLength(50, ErrorMessage = "Last Name cannot be longer than 50 characters.")]
-        [Display(Name = "Club Administrator's Last Name")]
+        [Display(Name = "Club Administrator's Family Name")]
         public string LastName { get; set; }
 
         [Display(Name = "Full Name")]
@@ -33,22 +34,37 @@ namespace HappyDaysOne.Models
                 return FirstName + ", " + LastName;
             }
         }
-        public string ContactPhNo { get; set; }
-        [Required]
-        [DataType(DataType.EmailAddress)]
-        public string ContactEmail { get; set; }
-        public string ClubName { get; set; }
-        [Required]
-        public string AddressLine1 { get; set; }
-        [Required]
-        public string AddressLine2 { get; set; }
-        [Required]
-        public string County { get; set; }
-        public string PostalCode { get; set; }
 
-        
-        //foreign key for ApplicationUser
-        //[ForeignKey("UserID")]
+        [Required(ErrorMessage = "Contact Number is Required")]
+        [Display(Name = "Club Phone Number")]
+        public string ContactPhNo { get; set; }
+
+        [Required(ErrorMessage = "Email Address is Required")]
+        [Display(Name = "Club Email Address")]
+        [DataType(DataType.EmailAddress)]
+        public string ClubEmail { get; set; }
+
+        [Required(ErrorMessage = "Club Name is Required")]
+        [StringLength(30, ErrorMessage = "Last Name cannot be longer than 30 characters.")]
+        [Display(Name = "Club Name")]
+        public string ClubName { get; set; }
+
+        [Required(ErrorMessage = "Address Line 1 Required")]
+        [Display(Name = "Address line 1")]
+        public string AddressLine1 { get; set; }
+
+        [Required(ErrorMessage = "Address Line 2 Required")]
+        [Display(Name = "Address line 2")]
+        public string AddressLine2 { get; set; }
+
+        [Required(ErrorMessage = "County is Required")]
+        [Display(Name = "County")]
+        public string County { get; set; }
+
+        [Display(Name = "Eircode")]
+        public string EirCode { get; set; }
+
+        //1:1 relationship between club and user
         public string UserID { get; set; }
 
         //Navigation Properties: 

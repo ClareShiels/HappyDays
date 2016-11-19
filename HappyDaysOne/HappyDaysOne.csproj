@@ -187,6 +187,7 @@
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="DAL\HappyDaysInitializer.cs" />
+    <Compile Include="DAL\HappyDaysOneContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -213,6 +214,19 @@
     <Compile Include="Migrations\201610231250212_FirstLastNameRegisterViewModel.cs" />
     <Compile Include="Migrations\201610231250212_FirstLastNameRegisterViewModel.Designer.cs">
       <DependentUpon>201610231250212_FirstLastNameRegisterViewModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611082249373_add application user to club.cs" />
+    <Compile Include="Migrations\201611082249373_add application user to club.Designer.cs">
+      <DependentUpon>201611082249373_add application user to club.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611092205283_rename users asp.netusers.cs" />
+    <Compile Include="Migrations\201611092216588_Back to original.cs" />
+    <Compile Include="Migrations\201611092216588_Back to original.Designer.cs">
+      <DependentUpon>201611092216588_Back to original.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611142225474_activity model changes.cs" />
+    <Compile Include="Migrations\201611142225474_activity model changes.Designer.cs">
+      <DependentUpon>201611142225474_activity model changes.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -312,6 +326,7 @@
     <Content Include="Views\Enrolments\Edit.cshtml" />
     <Content Include="Views\Enrolments\Index.cshtml" />
     <Content Include="Views\Children\AllChildren.cshtml" />
+    <Content Include="Views\Activities\AllActivities.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -342,6 +357,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610231250212_FirstLastNameRegisterViewModel.resx">
       <DependentUpon>201610231250212_FirstLastNameRegisterViewModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611082249373_add application user to club.resx">
+      <DependentUpon>201611082249373_add application user to club.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611092216588_Back to original.resx">
+      <DependentUpon>201611092216588_Back to original.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611142225474_activity model changes.resx">
+      <DependentUpon>201611142225474_activity model changes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

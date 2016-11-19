@@ -57,6 +57,7 @@ namespace HappyDaysOne.Controllers
             {
                 db.Enrolments.Add(enrolment);
                 await db.SaveChangesAsync();
+                //db.Enrolments
                 return RedirectToAction("Index");
             }
 

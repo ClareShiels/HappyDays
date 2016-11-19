@@ -15,44 +15,51 @@ namespace HappyDaysOne.Controllers
 {
     public class ActivitiesController : Controller
     {
-        private HappyDaysOne.Models.ApplicationDbContext db = new HappyDaysOne.Models.ApplicationDbContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
+        public ActionResult AllActivities()
+        {
+            //
+            return View(db.Activities.ToList().OrderBy(a => a.NameOfActivity));
+            //var activities = db.Activities.Include(z => z.Instructors);
+            //return View(activities.ToList());
+        }
 
         //WORKING ON GETTING THE CLUB MANAGERS PAGE TO RETURN A LIST OF ACTIVITIES IN THEIR CLUB
         // GET: Clubs
-        public /*async Task*/ActionResult Index(int? clubsID, int? id)
-        {
-            var viewModel = new ClubsData();
-            viewModel.Activities = db.Activities
-                                     .Include(c => c.Club)
-                                     .Include(c => c.Instructors.Select(a => a.InstructorPhNo))
-                                     .Include(c => c.Enrolments)
-                                     .OrderBy(c => c.NameOfActivity);
-            //if we have a clubID the selected club is retrieved from list of clubs in view model.
-            //the view models activities property is now filled with activity entitiies from the club's activities navigation property
-            if (clubsID != null)
-            {
-                ViewBag.ClubID = clubsID.Value;
-                viewModel.Activities = viewModel.Clubs
-                                                    .Where(c => c.ID == id.Value)
-                                                    .Single().Activities;
-            }
+        //public /*async Task*/ActionResult Index(int? clubsID, int? id)
+        //{
+        //    var viewModel = new ClubsData();
+        //    viewModel.Activities = db.Activities
+        //                             .Include(c => c.Club)
+        //                             .Include(c => c.Instructors.Select(a => a.InstructorPhNo))
+        //                             .Include(c => c.Enrolments)
+        //                             .OrderBy(c => c.NameOfActivity);
+        //    //if we have a clubID the selected club is retrieved from list of clubs in view model.
+        //    //the view models activities property is now filled with activity entitiies from the club's activities navigation property
+        //    if (clubsID != null)
+        //    {
+        //        ViewBag.ClubID = clubsID.Value;
+        //        viewModel.Activities = viewModel.Clubs
+        //                                            .Where(c => c.ID == id.Value)
+        //                                            .Single().Activities;
+        //    }
 
-            //decommenting sun 30/10 to try and sort out viewmodel
+        //    //decommenting sun 30/10 to try and sort out viewmodel
 
-            ////if we have an activity id we can now fill viewmodel.children with a list of its enrolments
-            //if (id != null)
-            //{
-            //    ViewBag.id = id.Value;
-            //    viewModel.Enrolments = viewModel.Children
-            //                                            .Where(e => e.ActivityID == id)
+        //    ////if we have an activity id we can now fill viewmodel.children with a list of its enrolments
+        //    //if (id != null)
+        //    //{
+        //    //    ViewBag.id = id.Value;
+        //    //    viewModel.Enrolments = viewModel.Children
+        //    //                                            .Where(e => e.ActivityID == id)
 
-            //                                            .Where(e => e.)
-            //                                            .Single().;
+        //    //                                            .Where(e => e.)
+        //    //                                            .Single().;
 
-            //}
-            return View(viewModel);
-        }
+        //    //}
+        //    return View(viewModel);
+        //}
 
         //just decommented sun 30th oct to try get index data on above action to give a view
 
@@ -64,10 +71,10 @@ namespace HappyDaysOne.Controllers
         //}
 
         // GET: Activity Names - activity name only, use in dropdown list for Activity
-        public ActionResult AllActivities()
-        {
-            return View(db.Activities.ToList().OrderBy(a => a.NameOfActivity));
-        }
+        //public ActionResult AllActivities()
+        //{
+        //    return View(db.Activities.ToList().OrderBy(a => a.NameOfActivity));
+        //}
 
         // GET: Activities/Details/5
         public async Task<ActionResult> Details(int? id)

@@ -18,7 +18,7 @@
             <li>@Html.ActionLink("Instructors", "Index", "Instructors", new { area = "" }, null)</li>
             <li>@Html.ActionLink("Payments", "Index", "Payments", new { area = "" }, null)</li>
         </ul>
-        <ul class="nav nav-bar navbar-right">
+        <ul class="nav navbar-nav navbar-right">
             <li>@Html.ActionLink("Activate", "Activate", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
         </ul>
 
@@ -28,15 +28,26 @@
 else if (ViewBag.displayMenu == "Club Manager")
 {
     <h1>
-        Welcome <strong>@ViewBag.Name</strong>.  You can access and edit your Clubs data
+        Welcome <strong>@ViewBag.Name @ViewBag.UserID</strong>.  You can access and edit your Clubs data
     </h1>
     <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-            <li>@Html.ActionLink("Club", "Index", "Club")</li>
-            <li>@Html.ActionLink()</li>
+            <li>@Html.ActionLink("Club", "Index", "Club"), new {UserID = ViewBag.UserID, clubID = ViewBag.ClubID}, null)</li>
         </ul>
     </div>
-            }
+}
+
+else if (ViewBag.displayMenu == "Child's Guardian")
+{
+    <h1>
+        Welcome <strong>@ViewBag.Name @ViewBag.UserID</strong>.  You can access and edit your Child's profile
+    </h1>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li>@Html.ActionLink("Child", "Index", "Child"), new {UserID = ViewBag.UserID, childID = ViewBag.ChildID}, null)</li>
+        </ul>
+    </div>
+}
 
             <!--@if (ViewBag.displayMenu == "Yes")
             {

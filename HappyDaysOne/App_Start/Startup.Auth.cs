@@ -7,6 +7,7 @@ using Microsoft.Owin.Security.Google;
 using Owin;
 using HappyDaysOne.Models;
 
+
 namespace HappyDaysOne
 {
     public partial class Startup

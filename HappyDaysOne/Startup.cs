@@ -42,7 +42,7 @@ namespace HappyDaysOne
                 user.UserName = "ClareShiels";
                 user.Email = "clare.cashin@gmail.com";
                 //changed PW 10/10/16 to attempt overcome identity issues, ensuring its legit
-                string userPWD = "Twilight1!";
+                string userPWD = "Casho1!";
 
                 //ok now - getting errors here now as of 25/9/16, no user created
                 var chkUser = UserManager.Create(user, userPWD);
@@ -74,6 +74,13 @@ namespace HappyDaysOne
             }
 
             //creating Instructor role
+            if (!roleManager.RoleExists("Instructor"))
+            {
+                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                role.Name = "Instructor";
+                roleManager.Create(role);
+
+            }
         }
     }
 }

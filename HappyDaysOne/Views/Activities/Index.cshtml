@@ -1,76 +1,26 @@
-﻿@model IEnumerable<HappyDaysOne.ViewModels.ClubsData>
-@{
-    ViewBag.Title = "Club Data";
-}
+﻿
+@model IEnumerable<HappyDaysOne.Models.Activity>
+    @{ 
+        ViewBag.Title = "ClubData";
+    }
+<h2>ClubData</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 
-<h2>Club Data</h2>
-@*<h3>@Html.Display(modelItem => item.NameOfClub)</h3>*@
-
-<table class="table-bordered">
+<table class="table">
     <tr>
         <th>
-            Activity
+            @Html.DisplayNameFor(model => model.NameOfActivity)
         </th>
         <th>
-            Activity ID
+            @Html.DisplayNameFor(model => model.AgeGroup)
         </th>
         <th>
-            Age Group
-        </th>
-        @*<th>
-            Number of Bookings
+            @Html.DisplayNameFor(model => model.ActivityCourseStartDate)
         </th>
         <th>
-            Places Available
-        </th>*@
-        <th>
-            Name Of Instructor
+            Instructor
         </th>
-        @*<th>
-            Instructor's Contact PhNo
-        </th>*@
     </tr>
-
-    @foreach (var item in Model.a)
-    {
-        string selectedRow = "";
-        if (item.ID == ViewBag.ActivityID)
-        {
-            selectedRow = "success";
-        }
-        <tr class = "@selectedRow">
-            <td>
-                @Html.DisplayFor(modelItem => item.NameOfActivity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AgeGroup)
-            </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.TBC)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TBC)
-            </td>*@
-            @*<td>
-                @Html.DisplayFor(modelItem => item.Enrolment)
-            </td>*@
-            @foreach (var itemActivityInstructor in Model.Instructors)
-            {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Instructors.Select(itemActivityInstructor ))
-                </td>
-                @*<td>
-                    @Html.DisplayFor(modelItem => itemActivityInstructor.InstructorPhNo)
-                </td>*@
-            </tr>
-            }
-        </tr>
-    }
-
 </table>
-
-

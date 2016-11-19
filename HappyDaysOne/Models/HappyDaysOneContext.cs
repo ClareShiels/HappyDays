@@ -19,12 +19,12 @@ namespace HappyDaysOne.Models
         {
         }
 
-        public System.Data.Entity.DbSet<HappyDaysOne.Models.Enrolment> Enrolments { get; set; }
+        public DbSet<Enrolment> Enrolments { get; set; }
 
-        public System.Data.Entity.DbSet<HappyDaysOne.Models.Activity> Activities { get; set; }
+        public DbSet<Activity> Activities { get; set; }
 
-        public System.Data.Entity.DbSet<HappyDaysOne.Models.Child> Children { get; set; }
+        public DbSet<Child> Children { get; set; }
 
-        public System.Data.Entity.DbSet<HappyDaysOne.Models.Payment> Payments { get; set; }
+        public DbSet<Payment> Payments { get; set; }
     }
 }

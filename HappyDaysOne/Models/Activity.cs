@@ -20,13 +20,25 @@ namespace HappyDaysOne.Models
     {
         public int ID { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Activity Name is Required")]
         [Display(Name = "Activity")]
         public string NameOfActivity { get; set; }
 
+
+        [Required(ErrorMessage = "What's the max capacity of the class")]
+        [Display(Name = "Max Capacity of Class")]
+        public int MaxCapacity { get; set; }
+
+        [Required(ErrorMessage = "Please specify the age group")]
+        [Display(Name = "Age Group")]
         public AgeGroup AgeGroup { get; set; }
 
+        [Required(ErrorMessage = "Please specify")]
+        [Display(Name = "Drop-In Class or PreBooked")]
         public ActivityType ActivityType { get; set; }
+
+        [Required(ErrorMessage = "Price is required")]
+        public decimal PriceOfActivity { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]

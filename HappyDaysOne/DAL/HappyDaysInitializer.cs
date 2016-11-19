@@ -18,10 +18,28 @@ namespace HappyDaysOne.DAL
             {
                 new Child { ChildFirstName = "Cora", ChildLastName = "Shiels", GuardianEmail = "clareshiels@gmail.com",
                     FirstName = "Clare", LastName = "Shiels", GuardianPhNo = "0871234567",
-                    DOB = DateTime.Parse("03-06-2009"), SpecialNeeds = SpecialNeeds.no },
+                    DOB = DateTime.Parse("27-06-2009"), SpecialNeeds = SpecialNeeds.no ,
+                    AddressLine1 = "1 Prospect Meadows", AddressLine2 = "Stocking Lane", County = "Dublin 16", PermissionToLeave = false},
                 new Child { ChildFirstName = "Noah", ChildLastName = "Shiels", GuardianEmail = "clareshiels@gmail.com",
                     FirstName = "Clare", LastName = "Shiels", GuardianPhNo = "0871234567",
-                    DOB = DateTime.Parse("06-12-2007"), SpecialNeeds = SpecialNeeds.no },
+                    DOB = DateTime.Parse("06-12-2007"), SpecialNeeds = SpecialNeeds.no,
+                    AddressLine1 = "1 Prospect Meadows", AddressLine2 = "Rathfarnham", County = "Dublin 16", EirCode = "D16H7RF",PermissionToLeave = false },
+                new Child { ChildFirstName = "Rosie", ChildLastName = "Shiels", GuardianEmail = "dermotshiels@gmail.com",
+                    FirstName = "Dermot", LastName = "Shiels", GuardianPhNo = "0871234567",
+                    DOB = DateTime.Parse("17-07-2012"), SpecialNeeds = SpecialNeeds.no ,
+                    AddressLine1 = "1 Prospect Meadows", AddressLine2 = "Stocking Lane", County = "Dublin 16", PermissionToLeave = false},
+                new Child { ChildFirstName = "Freya", ChildLastName = "Bucknell", GuardianEmail = "siobhan@gmail.com",
+                    FirstName = "Siobhan", LastName = "Bucknell", GuardianPhNo = "0871231231",
+                    DOB = DateTime.Parse("17-07-2007"), SpecialNeeds = SpecialNeeds.no ,
+                    AddressLine1 = "21 Marlfield Terrace", AddressLine2 = "Kiltipper", County = "Dublin 24", PermissionToLeave = false},
+                new Child { ChildFirstName = "Mia", ChildLastName = "Bailey", GuardianEmail = "emma@gmail.com",
+                    FirstName = "Emma", LastName = "Chandler", GuardianPhNo = "0864567879",
+                    DOB = DateTime.Parse("31-12-2006"), SpecialNeeds = SpecialNeeds.no ,
+                    AddressLine1 = "349 Ryevale Lawns", AddressLine2 = "Leixlip", County = "Kildare", PermissionToLeave = false},
+                new Child { ChildFirstName = "Sylvie", ChildLastName = "Bucknell", GuardianEmail = "siobhan@gmail.com",
+                    FirstName = "Siobhan", LastName = "Bucknell", GuardianPhNo = "0871231231",
+                    DOB = DateTime.Parse("18-01-2013"), SpecialNeeds = SpecialNeeds.no ,
+                    AddressLine1 = "21 Marlfield Terrace", AddressLine2 = "Kiltipper", County = "Dublin 24", PermissionToLeave = false},
 
             };
 
@@ -32,10 +50,14 @@ namespace HappyDaysOne.DAL
 
             var clubs = new List<Club>
             {
-                new Club { ClubName = "St Marys BNS", ContactEmail = "activities@StMarys.com",  FirstName = "Paula",
-                    LastName = "Byrne", ContactPhNo = "0871231234"  },
-                new Club { ClubName = "Loreto Grange Rd", ContactEmail = "activities@Loreto.com",  FirstName = "Jason",
-                    LastName = "Dean", ContactPhNo = "0861231231" }
+                new Club { ClubName = "St Marys BNS", ClubEmail = "activities@StMarys.com",  FirstName = "Paula",
+                    LastName = "Byrne", ContactPhNo = "0871231234", AddressLine1 = "14 Grange Rd", AddressLine2 = "Rathfarnham", County = "Dublin 14", EirCode = "D14HR7"  },
+                new Club { ClubName = "Loreto Primary School", ClubEmail = "activities@Loreto.com",  FirstName = "Jennifer",
+                    LastName = "Dean", ContactPhNo = "0861231231", AddressLine1 = "Grange Rd", AddressLine2 = "Rathfarnham", County = "Dublin 14", EirCode = "D14HR8" },
+                new Club { ClubName = "Loreto Primary School", ClubEmail = "activities@Loreto.com",  FirstName = "Jennifer",
+                    LastName = "Dean", ContactPhNo = "0861231231", AddressLine1 = "Grange Rd", AddressLine2 = "Rathfarnham", County = "Dublin 14", EirCode = "D14HR8" },
+                new Club { ClubName = "Loreto Primary School", ClubEmail = "activities@Loreto.com",  FirstName = "Jennifer",
+                    LastName = "Dean", ContactPhNo = "0861231231", AddressLine1 = "Grange Rd", AddressLine2 = "Rathfarnham", County = "Dublin 14", EirCode = "D14HR8" }
             };
 
             //seeding the Clubs DBSet
@@ -47,11 +69,17 @@ namespace HappyDaysOne.DAL
 
             var activities = new List<Activity>
             {
-                new Activity { ActivityCourseStartDate = DateTime.Parse("12-06-2017"), ActivityCourseEndDate = DateTime.Parse("11-07-2016"),
-                    ActivityType = ActivityType.Course, AgeGroup = AgeGroup.UnderSix, Day = DayOfWeek.Monday, NameOfActivity = "Basketball", ClassTime = DateTime.Parse("14:30"), ClubID = 1
+                new Activity { ActivityCourseStartDate = DateTime.Parse("12-06-2016"), ActivityCourseEndDate = DateTime.Parse("11-01-2017"),
+                    ActivityType = ActivityType.Course, AgeGroup = AgeGroup.UnderSix, Day = DayOfWeek.Monday, NameOfActivity = "Basketball",
+                    ClassTime = DateTime.Parse("14:30"), ClubID = 1, PriceOfActivity = 80, MaxCapacity = 25, 
                 },
-                new Activity { ActivityCourseStartDate = DateTime.Parse("01-06-2017"), ActivityCourseEndDate = DateTime.Parse("10-07-2016"),
-                    ActivityType = ActivityType.Course, AgeGroup = AgeGroup.NineToTwelve, Day = DayOfWeek.Tuesday, NameOfActivity = "GAA Football", ClassTime = DateTime.Parse("15:00"), ClubID = 2 }
+                new Activity { ActivityCourseStartDate = DateTime.Parse("01-06-2016"), ActivityCourseEndDate = DateTime.Parse("10-06-2017"),
+                    ActivityType = ActivityType.Course, AgeGroup = AgeGroup.NineToTwelve, Day = DayOfWeek.Tuesday, NameOfActivity = "GAA Football",
+                    ClassTime = DateTime.Parse("15:00"), ClubID = 2, PriceOfActivity = 55, MaxCapacity = 30
+                },
+                new Activity { ActivityCourseStartDate = DateTime.Parse("30-06-2016"), ActivityCourseEndDate = DateTime.Parse("10-06-2017"),
+                    ActivityType = ActivityType.Course, AgeGroup = AgeGroup.NineToTwelve, Day = DayOfWeek.Tuesday, NameOfActivity = "GAA Hurling",
+                    ClassTime = DateTime.Parse("15:00"), ClubID = 2, PriceOfActivity = 55, MaxCapacity = 29 }
             };
 
             activities.ForEach(a => context.Activities.Add(a));
@@ -69,8 +97,8 @@ namespace HappyDaysOne.DAL
 
             var instructors = new List<Instructor>
             {
-                new Instructor { InstructorEmail = "cc@bbb.com", InstructorFirstName = "Coco", InstructorLastName = "Belle", InstructorPhNo = "0872342343" },
-                new Instructor { InstructorEmail = "dd@ccc.com", InstructorFirstName = "David", InstructorLastName = "Gray", InstructorPhNo = "0871231231" }
+                new Instructor { InstructorEmail = "coco@hotmail.com", InstructorFirstName = "Coco", InstructorLastName = "Belle", InstructorPhNo = "0872342343" },
+                new Instructor { InstructorEmail = "dave@yahoo.com", InstructorFirstName = "David", InstructorLastName = "Gray", InstructorPhNo = "0871231231" }
             };
 
             instructors.ForEach(i => context.Instructors.Add(i));
@@ -78,9 +106,9 @@ namespace HappyDaysOne.DAL
 
             var payments = new List<Payment>
             {
-                new Payment {EnrolmentID = 1, DateReceived = DateTime.Parse("05-03-2016"), AmountDue = 80.00, AmountReceived = 80.00, PayeeName = "Clarissa" }, 
-                new Payment {EnrolmentID = 3, DateReceived = DateTime.Parse("02-02-2016"), AmountDue = 120.00, AmountReceived = 120.00, PayeeName = "Jemima" },
-                new Payment {EnrolmentID = 2, DateReceived = DateTime.Parse("12-06-2016"), AmountDue = 100.00, AmountReceived = 100.00, PayeeName = "Tre" }
+                new Payment {EnrolmentID = 1, DateReceived = DateTime.Parse("05-03-2016"), AmountDue = 80.00, AmountReceived = 80.00, PayeeName = "Clare Smith" }, 
+                new Payment {EnrolmentID = 3, DateReceived = DateTime.Parse("02-02-2016"), AmountDue = 120.00, AmountReceived = 120.00, PayeeName = "Darren Byrne" },
+                new Payment {EnrolmentID = 2, DateReceived = DateTime.Parse("12-06-2016"), AmountDue = 100.00, AmountReceived = 100.00, PayeeName = "Brenda Given" }
             };
 
             payments.ForEach(p => context.Payments.Add(p));

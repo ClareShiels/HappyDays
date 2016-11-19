@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using HappyDaysOne.Models;
@@ -168,39 +169,39 @@ namespace HappyDaysOne.Controllers
               
                 var result = await UserManager.CreateAsync(user, model.Password);
                 //late night 28 / 10
-                if (result.Succeeded/* && model.UserRoles.Contains("Club Manager")*/)
+                if (result.Succeeded && model.UserRoles.Contains("Club Manager"))
                 {
 
                     //reversing decomment sat 15/10/16 had just decommented this to try and fix registering issues
-                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                    //await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                     //decommenting sat 15/10/16 
                     //var club = new Club
                     //{
                     //    //TRYING SOMETHING else SAT NIGHT 8/10 TO TRY GET IDENTITY WORKING, SHOULD THIS BE HERE??????
-                    //    UserID = user.Id,
+                    //    //UserID = user.Id,
                     //    //removing names from reg page sat 15/10/16
                     //    FirstName = model.FirstName,
                     //    LastName = model.LastName,
                     //    ContactEmail = model.Email
                     //};
 
-                    //context.Clubs.Add(club);
-                    //await context.SaveChangesAsync();
-                    //await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
+                   // context.Clubs.Add(club);
+                    await context.SaveChangesAsync();
+                    await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
                     //For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     //Send an email with this link
                     //decommenting 15 / 10 / 16 registration issues
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    //string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     //var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     //await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
                     return RedirectToAction("Index", "Users");
                 }
 
-                //else if (result.Succeeded && model.UserRoles.Contains("Child's Guardian"))
-                //{
-                //    reversing decomment sat 15 / 10 / 16 had just decommented this to try and fix registering issues
-                //        await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                else if (result.Succeeded && model.UserRoles.Contains("Child's Guardian"))
+                {
+                    //    reversing decomment sat 15 / 10 / 16 had just decommented this to try and fix registering issues
+                    //await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                 //    decommenting sat 15 / 10 / 16
                 //        var child = new Child
                 //        {
@@ -214,12 +215,12 @@ namespace HappyDaysOne.Controllers
 
                 //    context.Children.Add(child);
                 //    await context.SaveChangesAsync();
-                //    await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
-                //    return RedirectToAction("Index", "Users");
-                //    }
+                await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
+                return RedirectToAction("Index", "Users");
+            }
 
-                ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
-                                          .ToList(), "Name", "Name");
+            ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
+                                                     .ToList(), "Name", "Name");
                 AddErrors(result);
             }
 

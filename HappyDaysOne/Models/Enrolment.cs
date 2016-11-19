@@ -8,6 +8,8 @@ namespace HappyDaysOne.Models
     public class Enrolment
     {
         public int ID { get; set; }
+
+        [Required(ErrorMessage = "Please Select if Payment has been Received" )]
         public Boolean PaymentReceived { get; set; }
         public Boolean PaymentDue { get; set; }
 

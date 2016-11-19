@@ -78,6 +78,7 @@ namespace HappyDaysOne.Controllers
             return View(Role);
         }
 
+        //creating a new role
         [HttpPost]
         public ActionResult Create(IdentityRole Role)
         {
